@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Editor</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <h1>Editor</h1>
-    </body>
+    <div class="navbar">
+        <a href="index.html"><div class="navbar_item">Home</div></a>
+        <a href="list.html"><div class="navbar_item">My Recipes</div></a>
+        <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
+        <a href="settings.html"><div class="navbar_item">Settings</div></a>
+        <a href="login.html"><div class="navbar_item">Log in</div></a>
+        <a href="editor.html"><div class="navbar_item">Editor (Demo)</div></a>
+        <a href="viewer.html"><div class="navbar_item">Viewer (Demo)</div></a>
+    </div>
+
+
+    <div class="app_main">
+        <img class="logo" src="media/recipebuddy.png">
+
+        <div class="recipepreview_container">
+            <div class="recipepreview_photoframe">
+                <img class="recipepreview_photo" src="media/test.jpg">
+            </div>
+            <div class="recipepreview_content">
+                <h2>The Collins Burrito</h2>
+                <p>3.9&#9733; - All Ingredients - No Allergens</p>
+                <a href="viewer.html"><div class="inline_button"><p>Make It</p></div></a>
+                <a href="editor.html"><div class="inline_button"><p>Edit</p></div></a>
+            </div>
+        </div>
+
+    </div>
 </html>
