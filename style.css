@@ -199,3 +199,11 @@ p {
 .search_content {
     padding: 12px;
 }
+
+.search_bar {
+    width: 80%;
+    margin: 8px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 6px;
+}
