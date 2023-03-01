@@ -24,19 +24,47 @@
             <div class="settings_content">
                 <h3>Username</h3>
                 <p>Your current username is EXAMPLE.</p>
-                <div class="inline_button">Change Username</div>
+                <div class="inline_button" onclick="openPopup1()">Change Username</div>
+                <div id="popup_1" class="popup">
+                    <div class = "popup-content"> 
+                        <span class="close" onclick="closePopup1()">&times;</span>
+                        <p>Enter New Username</p>
+                        <label for="textbox"></label>
+                        <input type="text" id="textbox" name="textbox">
+                    </div>
+                </div>
                 <div class="spacer"></div>
 
                 <h3>Password</h3>
-                <div class="inline_button">Change Password</div>
+                <div class="inline_button" onclick="openPopup2()">Change Password</div>
+                <div id="popup_2" class ="popup">
+                    <div class = "popup-content"> 
+                        <span class="close" onclick="closePopup2()">&times;</span>
+                        <p>Enter New Password</p>
+                        <label for="textbox"></label>
+                        <input type="text" id="textbox" name="textbox">
+                        <p>Confrim New Password</p>
+                        <label for="textbox"></label>
+                        <input type="text" id="textbox" name="textbox">
+                    </div>
+                </div>            
                 <div class="spacer"></div>
 
                 <h3>Allergens</h3>
-                <div class="inline_button">Change Default Allergens</div>
+                <div class="inline_button" onclick="openPopup3()">Change Default Allergens</div>
+                <div id="popup_3" class="popup">
+                    <div class = "popup-content"> 
+                        <span class="close" onclick="closePopup3()">&times;</span>
+                        <p>Add Allergen</p>
+                        <label for="textbox"></label>
+                        <input type="text" id="textbox" name="textbox">
+                    </div>
+                </div>  
                 <br>
                 <br>
                 <p>Need help? <a href="index.html">Contact Us!</a></p>
             </div>
         </div>
     </div>
+    <script src="settings.js"></script>  
 </html>
