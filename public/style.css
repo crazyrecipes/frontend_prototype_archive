@@ -133,9 +133,10 @@ p {
     width: 100%;
 }
 
-/* ===== MISC ===== */
+/* ===== INPUTS ===== */
 
 .inline_button {
+    font: inherit;
     display: inline-block;
     margin: 8px 8px 0px 0px;
     padding: 4px 8px;
@@ -148,6 +149,16 @@ p {
 .inline_button:hover {
     background: black;
     color: white;
+}
+
+.text_field {
+    font: inherit;
+    width: 300px;
+    margin: 8px 0;
+    border: 1px solid black;
+    padding: 6px;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 /* ===== PANTRY ===== */
@@ -195,14 +206,6 @@ p {
 
 .search_content {
     padding: 12px;
-}
-
-.search_bar {
-    width: 80%;
-    margin: 8px 0;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 6px;
 }
 
 /* ===== SETTINGS ===== */
@@ -277,12 +280,3 @@ p {
     padding: 12px;
 }
 
-.login_textfield {
-    width: 300px;
-    margin: 8px 0;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 6px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-}
