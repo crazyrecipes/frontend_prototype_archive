@@ -9,9 +9,7 @@
         <a href="list.html"><div class="navbar_item">My Recipes</div></a>
         <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
         <a href="settings.html"><div class="navbar_item">Settings</div></a>
-        <a href="login.html"><div class="navbar_item">Log in</div></a>
-        <a href="editor.html"><div class="navbar_item">Editor (Demo)</div></a>
-        <a href="viewer.html"><div class="navbar_item">Viewer (Demo)</div></a>
+        <a href="logout.html"><div class="navbar_item">Log Out</div></a>
     </div>
 
 
@@ -23,24 +21,46 @@
                 <h3>My Pantry</h3>
                 <p><i>Click on an ingredient's thumbnail to remove it.</i></p>
 
-                <div class="pantry_entry">
-                    <img class="pantry_entry_thumbnail" src="media/test.jpg" title="Remove">
-                    <div class="pantry_entry_text">Tortilla</div>
-                </div>
+                <div id="INGREDIENT_LIST"></div>
 
-                <div class="pantry_entry">
-                    <img class="pantry_entry_thumbnail" src="media/test.jpg" title="Remove">
-                    <div class="pantry_entry_text">Ranch Dressing</div>
-                </div>
-
-                <div class="pantry_entry">
-                    <img class="pantry_entry_thumbnail" src="media/test.jpg" title="Remove">
-                    <div class="pantry_entry_text">Onion</div>
-                </div>
-
-                <div class="inline_button"><p>Add an ingredient</p>
+                <div class="inline_button">Add an ingredient</div>
 
             </div>
         </div>
     </div>
+
+    <script>
+        const RECIPELIST_URL = "api/ingredients"
+        
+        function display_recipe_list() {
+            fetch(RECIPELIST_URL, {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json",
+                },
+            }).then(async response => {
+                const data = await response.json();
+                console.log(data);
+                formatted_result = "";
+                for(let i in data.ingredients) {
+                    let ingredient = data.ingredients[i];
+                    console.log(ingredient);
+                    var ingredientHTML = `
+                    <div class="pantry_entry">
+                        <img class="pantry_entry_thumbnail" src="${ingredient.photo}">
+                        <div class="pantry_entry_text">${ingredient.name}</div>
+                    </div>
+                    `
+                    formatted_result += ingredientHTML;
+                }
+
+                document.getElementById("INGREDIENT_LIST").innerHTML = formatted_result;
+            });
+            /*.catch(error => {
+                document.getElementById("RECIPE_LIST").innerHTML = "Error!";
+            });*/
+        }
+    
+        display_recipe_list();
+    </script>
 </html>

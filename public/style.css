@@ -178,10 +178,6 @@ p {
     box-sizing: border-box;
 }
 
-.pantry_entry_thumbnail:hover {
-    border: 25px solid black;
-}
-
 .pantry_entry_text {
     padding: 14px 4px 14px 8px;
 }
