@@ -1,0 +1,17 @@
+{
+    "id": "0",
+    "name": "The Collins Burger",
+    "photo": "media/test.jpg",
+    "rating": "4.1",
+    "cooked": "6",
+    "ingredients": [
+        "bread",
+        "onion",
+        "ranch"
+    ],
+    "steps": [
+        "Cook bread for 30 minutes.",
+        "Cook onion for 5 minutes.",
+        "Apply ranch."
+    ]
+}

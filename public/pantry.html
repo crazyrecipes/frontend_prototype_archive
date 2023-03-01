@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pantry</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <div class="navbar">
+        <a href="index.html"><div class="navbar_item">Home</div></a>
+        <a href="list.html"><div class="navbar_item">My Recipes</div></a>
+        <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
+        <a href="settings.html"><div class="navbar_item">Settings</div></a>
+        <a href="logout.html"><div class="navbar_item">Log Out</div></a>
+    </div>
+
+
+    <div class="app_main">
+        <img class="logo" src="media/recipebuddy.png">
+
+        <div class="pantry_container">
+            <div class="pantry_content">
+                <h3>My Pantry</h3>
+                <p><i>Click on an ingredient's thumbnail to remove it.</i></p>
+
+                <div id="INGREDIENT_LIST"></div>
+
+                <div class="inline_button">Add an ingredient</div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const RECIPELIST_URL = "api/ingredients"
+        
+        function display_recipe_list() {
+            fetch(RECIPELIST_URL, {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json",
+                },
+            }).then(async response => {
+                const data = await response.json();
+                console.log(data);
+                formatted_result = "";
+                for(let i in data.ingredients) {
+                    let ingredient = data.ingredients[i];
+                    console.log(ingredient);
+                    var ingredientHTML = `
+                    <div class="pantry_entry">
+                        <img class="pantry_entry_thumbnail" src="${ingredient.photo}">
+                        <div class="pantry_entry_text">${ingredient.name}</div>
+                    </div>
+                    `
+                    formatted_result += ingredientHTML;
+                }
+
+                document.getElementById("INGREDIENT_LIST").innerHTML = formatted_result;
+            });
+            /*.catch(error => {
+                document.getElementById("RECIPE_LIST").innerHTML = "Error!";
+            });*/
+        }
+    
+        display_recipe_list();
+    </script>
+</html>

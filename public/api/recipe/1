@@ -1,0 +1,17 @@
+{
+    "id": "1",
+    "name": "The Collins Burrito",
+    "photo": "media/test.jpg",
+    "rating": "5.0",
+    "cooked": "2",
+    "ingredients": [
+        "tortilla",
+        "onion",
+        "ranch"
+    ],
+    "steps": [
+        "Cook tortilla for 30 minutes.",
+        "Cook onion for 5 minutes.",
+        "Apply ranch."
+    ]
+}

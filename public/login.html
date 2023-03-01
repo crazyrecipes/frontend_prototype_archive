@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign up</title>
+        <title>Log in</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <div class="navbar">
@@ -9,21 +9,21 @@
         <a href="list.html"><div class="navbar_item">My Recipes</div></a>
         <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
         <a href="settings.html"><div class="navbar_item">Settings</div></a>
-        <a href="login.html"><div class="navbar_item">Log in</div></a>
-        <a href="editor.html"><div class="navbar_item">Editor (Demo)</div></a>
-        <a href="viewer.html"><div class="navbar_item">Viewer (Demo)</div></a>
+        <a href="logout.html"><div class="navbar_item">Log Out</div></a>
     </div>
 
     <div class="app_main">
         <img class="logo" src="media/recipebuddy.png">
         <div class="login_container">
             <div class="login_content">
-                <h3>Sign Up</h3>
-                <div class="login_textfield">email...</div>
-                <div class="login_textfield">username...</div>
-                <div class="login_textfield">password...</div>
-                <div class="login_textfield">confirm password...</div>
-                <div class="inline_button">Submit</div>
+                <h3>Welcome back!</h3>
+                <div class="spacer"></div>
+                <p>Username:</p>
+                <p><input id="username_box" class="text_field" type="text"></p>
+                <p>Password:</p>
+                <p><input id="password_box" class="text_field" type="password"></p>
+                <div class="spacer"></div>
+                <button class="inline_button">Log In</button>
             </div>
         </div>
     </div>

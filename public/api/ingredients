@@ -1,0 +1,14 @@
+{
+    "ingredients": [
+        {
+            "id": "0",
+            "name": "tortilla",
+            "photo": "media/test.jpg"
+        },
+        {
+            "id": "1",
+            "name": "onion",
+            "photo": "media/test.jpg"
+        }
+    ]
+}
