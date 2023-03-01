@@ -29,118 +29,50 @@
                     <div class="inline_button">Search</div>
                 </div>
             </div>
-            <div class="recipepreview_container">
-                <div class="recipepreview_photoframe">
-                    <img class="recipepreview_photo" src="media/test.jpg">
-                </div>
-                <div class="recipepreview_content">
-                    <h2>The Collins Burrito</h2>
-                    <p>3.9&#9733; - All Ingredients - No Allergens</p>
-                    <a href="viewer.html"><div class="inline_button"><p>Make It</p></div></a>
-                    <a href="editor.html"><div class="inline_button"><p>Edit</p></div></a>
-                </div>
-            </div>
-
-            <div class="recipepreview_container">
-                <div class="recipepreview_photoframe">
-                    <img class="recipepreview_photo" src="media/test.jpg">
-                </div>
-                <div class="recipepreview_content">
-                    <h2>The Collins Burrito 2</h2>
-                    <p>3.9&#9733; - All Ingredients - No Allergens</p>
-                    <a href="viewer.html"><div class="inline_button"><p>Make It</p></div></a>
-                    <a href="editor.html"><div class="inline_button"><p>Edit</p></div></a>
-                </div>
-            </div>
-
-            <div class="recipepreview_container">
-                <div class="recipepreview_photoframe">
-                    <img class="recipepreview_photo" src="media/test.jpg">
-                </div>
-                <div class="recipepreview_content">
-                    <h2>The Collins Burrito 3</h2>
-                    <p>3.9&#9733; - All Ingredients - No Allergens</p>
-                    <a href="viewer.html"><div class="inline_button"><p>Make It</p></div></a>
-                    <a href="editor.html"><div class="inline_button"><p>Edit</p></div></a>
-                </div>
-            </div>
-
-            <div class="recipepreview_container">
-                <div class="recipepreview_photoframe">
-                    <img class="recipepreview_photo" src="media/test.jpg">
-                </div>
-                <div class="recipepreview_content">
-                    <h2>The Collins Burrito 4</h2>
-                    <p>3.9&#9733; - All Ingredients - No Allergens</p>
-                    <a href="viewer.html"><div class="inline_button"><p>Make It</p></div></a>
-                    <a href="editor.html"><div class="inline_button"><p>Edit</p></div></a>
-                </div>
-            </div>
-
-            <div class="recipepreview_container">
-                <div class="recipepreview_photoframe">
-                    <img class="recipepreview_photo" src="media/test.jpg">
-                </div>
-                <div class="recipepreview_content">
-                    <h2>The Collins Burrito 5</h2>
-                    <p>3.9&#9733; - All Ingredients - No Allergens</p>
-                    <a href="viewer.html"><div class="inline_button"><p>Make It</p></div></a>
-                    <a href="editor.html"><div class="inline_button"><p>Edit</p></div></a>
-                </div>
-            </div>
 
             <div id="RECIPE_LIST"></div>
         </div>
 
         <script>
-            async function get_from_api(url) {
-                response = await fetch(url, {
+            const RECIPELIST_URL = "api/recipes"
+            
+            function display_recipe_list() {
+                fetch(RECIPELIST_URL, {
                     method: "GET",
-                    mode: "no-cors",
                     headers: {
                         "Accept": "application/json",
                     },
-                })
-                console.log(response.status);
-                var data = await response.json();
-                console.log(data);
-                console.log(data.user.name);
-            }
-
-            function disp_from_api(url) {
-                fetch(url, {
-                    method: "GET",
-                    headers: {
-                        "Accept": "text/plain",
-                    },
                 }).then(async response => {
-                    const data = await response.text();
+                    const data = await response.json();
                     console.log(data);
-                    return data;
-                }).catch(error => {
-                    return "";
-                });
-            }
+                    formatted_result = "";
+                    for(let i in data.recipes) {
+                        let recipe = data.recipes[i];
+                        console.log(recipe);
+                        var recipeHTML = `
+                        <div class="recipepreview_container">
+                            <div class="recipepreview_photoframe">
+                                <img class="recipepreview_photo" src="${recipe.photo}">
+                            </div>
+                            <div class="recipepreview_content">
+                                <h2>${recipe.name}</h2>
+                                <p>${recipe.rating}&#9733; - Cooked ${recipe.cooked} times.</p>
+                                <a href="viewer?id=${recipe.id}"><div class="inline_button"><p>Make It</p></div></a>
+                                <a href="editor?id=${recipe.id}"><div class="inline_button"><p>Edit</p></div></a>
+                            </div>
+                        </div>
+                        `
+                        formatted_result += recipeHTML;
+                    }
 
-            //get_from_api("test.json");
-            console.log(disp_from_api("test.json"));
-            const photo_url = "media/test.jpg";
-            const recipe_name = "The Collins Burrito 6"
-            const recipe_text = "3.9 Stars - All Ingredients - No Allergens"
-            var recipeListHTML = `
-                <div class="recipepreview_container">
-                    <div class="recipepreview_photoframe">
-                        <img class="recipepreview_photo" src="${photo_url}">
-                    </div>
-                    <div class="recipepreview_content">
-                        <h2>${recipe_name}</h2>
-                        <p>${recipe_text}</p>
-                        <a href="viewer.html"><div class="inline_button"><p>Make It</p></div></a>
-                        <a href="editor.html"><div class="inline_button"><p>Edit</p></div></a>
-                    </div>
-                </div>
-            `
-            document.getElementById("RECIPE_LIST").innerHTML = recipeListHTML;
+                    document.getElementById("RECIPE_LIST").innerHTML = formatted_result;
+                });
+                /*.catch(error => {
+                    document.getElementById("RECIPE_LIST").innerHTML = "Error!";
+                });*/
+            }
+        
+            display_recipe_list();
         </script>
     </body>
 </html>

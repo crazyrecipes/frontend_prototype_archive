@@ -123,15 +123,6 @@ To display it nicely, we'll do the following:
 <div id="recipe"></div>
 
 <script>
-    function display_recipe(recipe) {
-        formatted_result = `
-        <div class="recipe_name">${recipe.name}</div>
-        <div class="recipe_desc">${recipe.desc}</div>
-        <div class="recipe_rating>${recipe.rating}</div>
-        `
-        document.getElementByID("recipe").innerHTML = formatted_result;
-    }
-
     function disp_recipe(url) {
         fetch(url, {
             method: "GET",
@@ -151,7 +142,7 @@ To display it nicely, we'll do the following:
         });
     }
 
-    get_and_display("api/recipes/1");
+    disp_recipe("api/recipes/1");
 
 </script>
 ```
