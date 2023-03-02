@@ -20,20 +20,6 @@ h2 {
     font-size: 32px;
 }
 
-h3 {
-    font-family: Verdana, Tahoma, sans-serif;
-    margin: 16px 0;
-    padding: 0;
-    font-size: 24px;
-}
-
-h4 {
-    font-family: Verdana, Tahoma, sans-serif;
-    margin: 16px 0;
-    padding: 0;
-    font-size: 24px;
-}
-
 p {
     margin: 16px 0;
     padding: 0;
@@ -61,7 +47,6 @@ a {
     margin: 0 auto;
     padding: 4px;
     max-width: 1000px;
-    
 }
 
 .content_inner {
@@ -80,29 +65,16 @@ a {
     overflow: hidden;
 }
 
-.sbsl {
-    width: 95%;
-    margin: 0px 0px 6px 0px;
-    padding: 0px 8px;
-    word-wrap: break-word;
-    overflow: hidden;
-}
-
-.sbsr {
-    width: 95%;
-    margin: 0px 0px 6px 0px;
+.sbsc {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
     padding: 0px 8px;
     word-wrap: break-word;
     overflow: hidden;
 }
 
 /* Inline menus and buttons */
-.inline_menu {
-    margin: 4px 0px;
-    padding: 4px 0px;
-    width: 100%;
-    overflow: auto;
-}
 
 .inline_button {
     margin: 4px 0px;
@@ -119,12 +91,6 @@ a {
     color: white;
 }
 
-.inline_spacer {
-    display: inline-block;
-    width: 20px;
-    height: auto;
-}
-
 /* Dividers and spacers */
 .divider {
     width: 100%;
@@ -133,32 +99,10 @@ a {
     margin-top: 24px;
     margin-bottom: 20px;
 }
+
 .spacer {
     width: 100%;
     height: 1px;
     margin-top: 24px;
     margin-bottom: 20px;
-}
-
-/* Inline containers */
-.horizontal_container {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: auto;
-}
-
-.horizontal_item {
-    display: inline-block;
-}
-
-.centered_container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    padding: 4px;
-}
-
-.underline {
-    text-decoration: underline;
 }

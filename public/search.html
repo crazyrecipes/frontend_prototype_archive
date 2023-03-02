@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Recipes</title>
+        <title>Search Recipes</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -19,21 +19,73 @@
 
             <div class="search_container">
                 <div class="search_content">
-                    <h3>Quick Search</h3>
-                    <input class="text_field" id="SEARCH_INPUT"></input>
+                    <h3>Search Recipes</h3>
+                    <input class="text_field" id="SEARCH_TEXT"></input>
                     <p>
-                        <input type="checkbox" id="SEARCH_INGREDIENTS">
-                        <label for="allergens">Show recipes that I'm missing ingredients for</label>
+
+                    <h3>Time</h3>
+
+                    <p>
+                        <input type="radio" name="TIME_INPUT" value="NOPREF" checked>
+                        <label>No Preference</label>
                     </p>
                     <p>
-                        <input type="checkbox" id="SEARCH_ALLERGENS">
-                        <label for="allergens">Show recipes with my allergens</label>
+                        <input type="radio" name="TIME_INPUT" value="BREAKFAST">
+                        <label>Breakfast</label>
+
                     </p>
+                    <p>
+                        <input type="radio" name="TIME_INPUT" value="LUNCH">
+                        <label>Lunch</label>
+                    </p>
+                    <p>
+                        <input type="radio" name="TIME_INPUT" value="DINNER">
+                        <label>Dinner</label>
+                    </p>
+
+                    <h3>Ingredients</h3>
+
+                    <p>
+                        <input type="radio" name="INGREDIENTS_INPUT" value="ALL">
+                        <label>Show only recipes I have everything for</label>
+                    </p>
+
+                    <p>
+                        <input type="radio" name="INGREDIENTS_INPUT" value="SOME" checked>
+                        <label>Show more recipes (1 or 2 things missing)</label>
+                    </p>
+
+                    <p>
+                        <input type="radio" name="INGREDIENTS_INPUT" value="NONE">
+                        <label>Don't filter by ingredients</label>
+                    </p>
+
+                    <h3>Allergens</h3>
+
+                    <p>
+                        <input type="radio" name="ALLERGENS_INPUT" value="BLOCK" checked>
+                        <label>Don't show recipes with my allergens</label>
+                    </p>
+
+                    <p>
+                        <input type="radio" name="ALLERGENS_INPUT" value="SHOW">
+                        <label>Show recipes with my allergens</label>
+                    </p>
+
                     <button class="inline_button">Search</button>
                 </div>
             </div>
 
-            <div id="RECIPE_LIST"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+
+            <div class="search_container">
+                <div class="search_content">
+                    <h2>Search Results</h2>
+                </div>
+            </div>
+
+            <div id="SEARCH_RESULTS"></div>
         </div>
 
         <script>
@@ -68,7 +120,7 @@
                         formatted_result += recipeHTML;
                     }
 
-                    document.getElementById("RECIPE_LIST").innerHTML = formatted_result;
+                    document.getElementById("SEARCH_RESULTS").innerHTML = formatted_result;
                 });
                 /*.catch(error => {
                     document.getElementById("RECIPE_LIST").innerHTML = "Error!";

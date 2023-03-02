@@ -136,6 +136,7 @@ p {
 /* ===== MISC ===== */
 
 .inline_button {
+    font: inherit;
     display: inline-block;
     margin: 8px 8px 0px 0px;
     padding: 4px 8px;

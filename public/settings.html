@@ -9,7 +9,6 @@
         <a href="list.html"><div class="navbar_item">My Recipes</div></a>
         <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
         <a href="settings.html"><div class="navbar_item">Settings</div></a>
-        <a href="logout.html"><div class="navbar_item">Log Out</div></a>
     </div>
 
     <div class="app_main">
@@ -20,21 +19,12 @@
 
                 <div class="spacer"></div>
 
-                <h3>Username</h3>
-                <p id="USERNAME_CURRENT">Your current username is:  <span id="username"></span></p>
-                <p>Enter new username...</p>
-                <div><input class="text_field" id="USERNAME_INPUT"></div>
-                <button class="inline_button" onclick="handleChangeUsername()">Change Username</button>
-                <div id="USERNAME_STATUS"></div>
+                <h3>Name</h3>
+                <p>Your current name is:  <span id="NAME_CURRENT"></span></p>
+                <p>Enter new name...</p>
+                <div><input class="text_field" id="NAME_INPUT"></div>
+                <button class="inline_button" onclick="handleChangeName()">Change Name</button>
                 
-                <div class="spacer"></div>
-
-                <h3>Password</h3>
-                <p>Enter new password...</p>
-                <div><input class="text_field" id="PASSWORD_INPUT"></div>
-                <p>Confirm new password...</p>
-                <div><input class="text_field" id="PASSWORD_CONFIRM"></div>
-                <div class="inline_button" onclick="handleChangePassword()">Change Password</div>
                 <div class="spacer"></div>
 
                 <h3>Allergens</h3>
@@ -89,13 +79,9 @@
         </div>
     </div>
     <script> 
-        function handleChangeUsername()  {
-            var username = document.getElementById("USERNAME_INPUT").value 
-            document.getElementById("username").innerHTML = username
-        }
-        function handleChangePassword() {
-            var newPass = document.getElementById("PASSWORD_INPUT").value
-            document.getElementById("password").innerHTML = newPass
+        function handleChangeName()  {
+            var username = document.getElementById("NAME_INPUT").value 
+            document.getElementById("NAME_CURRENT").innerHTML = username
         }
         </script>
 </html>
