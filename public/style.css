@@ -42,6 +42,17 @@ p {
     color: black;
     background: none;
     transition-duration: 200ms;
+    border-radius: 4px;
+}
+
+.navbar_logo {
+    display: inline-block;
+    color: black;
+    background: none;
+    max-height: 30px;
+    padding-left: 4px;
+    padding-right: 4px;
+    vertical-align: middle;
 }
 
 .navbar_item:hover {
