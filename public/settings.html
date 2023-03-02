@@ -25,7 +25,7 @@
                 <p>Your current name is:  <span id="NAME_CURRENT"></span></p>
                 <p>Enter new name...</p>
                 <div><input class="text_field" id="NAME_INPUT"></div>
-                <button class="inline_button" onclick="handleChangeName()">Change Name</button>
+                <button class="inline_button" onclick="handle_name_change()">Change Name</button>
                 
                 <div class="spacer"></div>
 
@@ -74,18 +74,18 @@
                     <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
                     <label for="ALLERGEN_MUSTARD">Mustard</label>
                 </p>
-                <div class="inline_button" onclick="handleAllergens()">Update Allergens</div>
+                <div class="inline_button" onclick="handle_allergen_change()">Update Allergens</div>
                 <div class="spacer"></div>
                 <p>Need help? <a href="index.html">Contact Us!</a></p>
             </div>
         </div>
     </div>
-    <script> 
-        function handleChangeName()  {
-            var username = document.getElementById("NAME_INPUT").value 
-            document.getElementById("NAME_CURRENT").innerHTML = username
+    <script>
+        function handle_name_change()  {
+            var name = document.getElementById("NAME_INPUT").value 
+            document.getElementById("NAME_CURRENT").innerHTML = name
         }
-        function handleAllergens() {
+        function handle_allergen_change() {
             console.log("The following allergens are selected:");
             var checkboxes = document.getElementsByName("checkboxes");
             for (var i = 0; i < checkboxes.length; i++) {

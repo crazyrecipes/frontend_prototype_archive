@@ -21,7 +21,7 @@
             <div class="search_container">
                 <div class="search_content">
                     <h3>Search Recipes</h3>
-                    <input class="text_field" id="SEARCH_TITLE"></input>
+                    <input class="text_field" id="SEARCH_TEXT"></input>
                     <p>
 
                     <h3>Time</h3>
@@ -85,11 +85,12 @@
         <script>
             const RECIPELIST_URL = "api/search"
             
+            /* Execute a search and display results */
             function do_search() {
                 console.log("Handling SEARCH...");
                 /* Get title */
-                var search_title = document.getElementById("SEARCH_TITLE").value;
-                console.log(`..for title "${search_title}"`)
+                var search_text = document.getElementById("SEARCH_TEXT").value;
+                console.log(`..for text "${search_text}"`)
 
                 /* Get time choice */
                 var time_inputs = document.getElementsByName("TIME_INPUT");
@@ -128,7 +129,7 @@
                 const SEARCH_JSON = `
                 {
                     "query": {
-                        "title": "${search_title}",
+                        "title": "${search_text}",
                         "time": "${search_time}",
                         "ingredients": "${search_ingredients}",
                         "allergens": "${search_allergens}",
@@ -158,9 +159,7 @@
                         console.log(recipe);
                         var recipeHTML = `
                         <div class="recipepreview_container">
-                            <div class="recipepreview_photoframe">
-                                <img class="recipepreview_photo" src="${recipe.photo}">
-                            </div>
+                            <img class="recipepreview_photo" src="${recipe.photo}">
                             <div class="recipepreview_content">
                                 <h2>${recipe.name}</h2>
                                 <p>${recipe.rating}&#9733; - Cooked ${recipe.cooked} times.</p>
