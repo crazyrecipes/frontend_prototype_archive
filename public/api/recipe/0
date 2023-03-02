@@ -13,5 +13,13 @@
         "Cook bread for 30 minutes.",
         "Cook onion for 5 minutes.",
         "Apply ranch."
+    ],
+    "allergens": [
+        "GLUTEN",
+        "SHELLFISH"
+    ],
+    "tags": [
+        "quick",
+        "family"
     ]
 }

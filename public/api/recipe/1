@@ -2,8 +2,8 @@
     "id": "1",
     "name": "The Collins Burrito",
     "photo": "media/test.jpg",
-    "rating": "5.0",
-    "cooked": "2",
+    "rating": "4.7",
+    "cooked": "7",
     "ingredients": [
         "tortilla",
         "onion",
@@ -13,5 +13,13 @@
         "Cook tortilla for 30 minutes.",
         "Cook onion for 5 minutes.",
         "Apply ranch."
+    ],
+    "allergens": [
+        "GLUTEN",
+        "SHELLFISH"
+    ],
+    "tags": [
+        "quick",
+        "family"
     ]
 }
