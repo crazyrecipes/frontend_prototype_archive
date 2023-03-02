@@ -26,6 +26,61 @@ p {
     height: 20px;
 }
 
+.app_main {
+    margin: 0;
+    padding: 0;
+    padding-top: 60px;
+    min-width: 600px;
+    overflow: visible;
+}
+
+.logo {
+    margin: 12px auto;
+    display: block;
+    width: 60%;
+    max-width: 400px;
+}
+
+.inline_button {
+    cursor: pointer;
+    font: inherit;
+    display: inline-block;
+    margin: 8px 8px 0px 0px;
+    padding: 6px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    background: none;
+    transition-duration: 200ms;
+}
+
+.inline_button:hover {
+    background: black;
+    color: white;
+}
+
+.text_field {
+    font: inherit;
+    width: 300px;
+    margin: 8px 0;
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.text_field_big {
+    font: inherit;
+    width: 500px;
+    margin: 8px 0;
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
 /* ===== NAVBAR ===== */
 
 .navbar {
@@ -47,6 +102,7 @@ p {
     color: white;
     background: none;
     border: 1px solid rgba(0,0,0,0);
+    border-radius: 5px;
     transition-duration: 200ms;
 }
 
@@ -54,44 +110,6 @@ p {
     background: white;
     color: black;
     border: 1px solid white;
-}
-
-/* ===== SIDEBAR ===== */
-
-.app_sidebar {
-    position: fixed;
-    width: 200px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    z-index: 999;
-    overflow: hidden;
-    background: white;
-}
-
-.app_sidebar_content {
-    padding: 12px;
-    word-wrap: break-word;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 100%;
-}
-
-.logo {
-    margin: 12px auto;
-    display: block;
-    width: 60%;
-    max-width: 400px;
-}
-
-/* ===== MAIN WINDOW ===== */
-
-.app_main {
-    margin: 0;
-    padding: 0;
-    padding-top: 60px;
-    min-width: 600px;
-    overflow: visible;
 }
 
 /* ===== RECIPE PREVIEW ===== */
@@ -124,6 +142,7 @@ p {
     margin: 30px auto;
     background: white;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
     display: grid;
     grid-template-columns: 200px auto;
 }
@@ -133,48 +152,10 @@ p {
 }
 
 .recipepreview_photo {
+    border-radius: 5px 0px 0px 5px;
     width: 200px;
     height: 200px;
     object-fit: cover;
-}
-
-/* ===== MISC ===== */
-
-.inline_button {
-    cursor: pointer;
-    font: inherit;
-    display: inline-block;
-    margin: 8px 8px 0px 0px;
-    padding: 6px 10px;
-    border: 1px solid black;
-    color: black;
-    background: none;
-    transition-duration: 200ms;
-}
-
-.inline_button:hover {
-    background: black;
-    color: white;
-}
-
-.text_field {
-    font: inherit;
-    width: 300px;
-    margin: 8px 0;
-    border: 1px solid black;
-    padding: 6px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-}
-
-.text_field_big {
-    font: inherit;
-    width: 500px;
-    margin: 8px 0;
-    border: 1px solid black;
-    padding: 6px;
-    overflow-x: scroll;
-    overflow-y: hidden;
 }
 
 /* ===== PANTRY ===== */
@@ -221,6 +202,7 @@ p {
     padding: 0;
     margin: 0px auto;
     background: white;
+    border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
 }
 
