@@ -89,7 +89,7 @@
                     var ingredientHTML = `
                     <div class="pantry_entry">
                         ${ingredient.name}
-                        <button class="inline_button" onClick="handle_remove_ingredient('${ingredient.name}')">X</button>
+                        <button class="pantry_button" onClick="handle_remove_ingredient('${ingredient.name}')">X</button>
                     </div>
                     `
                     formatted_result += ingredientHTML;
@@ -122,7 +122,7 @@
                     var implementHTML = `
                     <div class="pantry_entry">
                         ${implement.name}
-                        <button class="inline_button" onClick="handle_remove_implement('${implement.name}')">X</button>
+                        <button class="pantry_button" onClick="handle_remove_implement('${implement.name}')">X</button>
                     </div>
                     `
                     formatted_result += implementHTML;
