@@ -1,0 +1,12 @@
+{
+    "allergens": [
+        {
+            "id": "0",
+            "name": "GLUTEN"
+        },
+        {
+            "id": "1",
+            "name": "SOY"
+        }
+    ]
+}
