@@ -150,6 +150,16 @@ p {
     color: white;
 }
 
+.text_field {
+    font: inherit;
+    width: 300px;
+    margin: 8px 0;
+    border: 1px solid black;
+    padding: 6px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
 /* ===== PANTRY ===== */
 
 .pantry_container {
