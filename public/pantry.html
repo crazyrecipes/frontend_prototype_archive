@@ -8,6 +8,7 @@
         <a href="index.html"><div class="navbar_item">Home</div></a>
         <a href="list.html"><div class="navbar_item">My Recipes</div></a>
         <a href="search.html"><div class="navbar_item">Search</div></a>
+        <a href="create.html"><div class="navbar_item">Create</div></a>
         <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
         <a href="settings.html"><div class="navbar_item">Settings</div></a>
     </div>
@@ -22,18 +23,20 @@
                 <p><i>Click on an ingredient's thumbnail to remove it.</i></p>
 
                 <div id="INGREDIENT_LIST"></div>
-
-                <div class="inline_button">Add an ingredient</div>
+                <div class="spacer"></div>
+                <p>Add an ingredient</p>
+                <div><input class="text_field" id="INGREDIENT_ADD_INPUT"></div>
+                <button class="inline_button">Add</button>
 
             </div>
         </div>
     </div>
 
     <script>
-        const RECIPELIST_URL = "api/ingredients"
+        const INGREDIENTS_URL = "api/ingredients"
         
-        function display_recipe_list() {
-            fetch(RECIPELIST_URL, {
+        function display_ingredients() {
+            fetch(INGREDIENTS_URL, {
                 method: "GET",
                 headers: {
                     "Accept": "application/json",
@@ -61,6 +64,6 @@
             });*/
         }
     
-        display_recipe_list();
+        display_ingredients();
     </script>
 </html>
