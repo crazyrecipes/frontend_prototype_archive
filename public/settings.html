@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Settings</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <div class="navbar">
+        <a href="index.html"><div class="navbar_item">Home</div></a>
+        <a href="list.html"><div class="navbar_item">My Recipes</div></a>
+        <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
+        <a href="settings.html"><div class="navbar_item">Settings</div></a>
+        <a href="logout.html"><div class="navbar_item">Log Out</div></a>
+    </div>
+
+    <div class="app_main">
+        <img class="logo" src="media/recipebuddy.png">
+        <div class="settings_container">
+            <div class="settings_content">
+                <h1>Settings</h1>
+
+                <div class="spacer"></div>
+
+                <h3>Username</h3>
+                <p id="USERNAME_CURRENT">Your current username is:  <span id="username"></span></p>
+                <p>Enter new username...</p>
+                <div><input class="text_field" id="USERNAME_INPUT"></div>
+                <button class="inline_button" onclick="handleChangeUsername()">Change Username</button>
+                <div id="USERNAME_STATUS"></div>
+                
+                <div class="spacer"></div>
+
+                <h3>Password</h3>
+                <p>Enter new password...</p>
+                <div><input class="text_field" id="PASSWORD_INPUT"></div>
+                <p>Confirm new password...</p>
+                <div><input class="text_field" id="PASSWORD_CONFIRM"></div>
+                <div class="inline_button" onclick="handleChangePassword()">Change Password</div>
+                <div class="spacer"></div>
+
+                <h3>Allergens</h3>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_PEANUTS">
+                    <label for="ALLERGEN_PEANUTS">Peanuts</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS">
+                    <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_DAIRY">
+                    <label for="ALLERGEN_DAIRY">Dairy</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_SOY">
+                    <label for="ALLERGEN_SOY">Soy</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_GLUTEN">
+                    <label for="ALLERGEN_GLUTEN">Gluten</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_EGG">
+                    <label for="ALLERGEN_EGG">Egg</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_FISH">
+                    <label for="ALLERGEN_FISH">Fish</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH">
+                    <label for="ALLERGEN_SHELLFISH">Shellfish</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_CORN">
+                    <label for="ALLERGEN_CORN">Corn</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_SESAME">
+                    <label for="ALLERGEN_SESAME">Sesame</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="ALLERGEN_MUSTARD">
+                    <label for="ALLERGEN_MUSTARD">Mustard</label>
+                </p>
+                <div class="inline_button">Update Allergens</div>
+                <div class="spacer"></div>
+                <p>Need help? <a href="index.html">Contact Us!</a></p>
+            </div>
+        </div>
+    </div>
+    <script> 
+        function handleChangeUsername()  {
+            var username = document.getElementById("USERNAME_INPUT").value 
+            document.getElementById("username").innerHTML = username
+        }
+        function handleChangePassword() {
+            var newPass = document.getElementById("PASSWORD_INPUT").value
+            document.getElementById("password").innerHTML = newPass
+        }
+        </script>
+</html>
