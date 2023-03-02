@@ -29,50 +29,50 @@
 
                 <h3>Allergens</h3>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_PEANUTS">
+                    <input type="checkbox" id="ALLERGEN_PEANUTS" name = "checkboxes">
                     <label for="ALLERGEN_PEANUTS">Peanuts</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_TREE_NUTS">
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name = "checkboxes">
                     <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_DAIRY">
+                    <input type="checkbox" id="ALLERGEN_DAIRY" name = "checkboxes">
                     <label for="ALLERGEN_DAIRY">Dairy</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_SOY">
+                    <input type="checkbox" id="ALLERGEN_SOY" name = "checkboxes">
                     <label for="ALLERGEN_SOY">Soy</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_GLUTEN">
+                    <input type="checkbox" id="ALLERGEN_GLUTEN" name = "checkboxes">
                     <label for="ALLERGEN_GLUTEN">Gluten</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_EGG">
+                    <input type="checkbox" id="ALLERGEN_EGG" name = "checkboxes">
                     <label for="ALLERGEN_EGG">Egg</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_FISH">
+                    <input type="checkbox" id="ALLERGEN_FISH" name = "checkboxes">
                     <label for="ALLERGEN_FISH">Fish</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_SHELLFISH">
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name = "checkboxes">
                     <label for="ALLERGEN_SHELLFISH">Shellfish</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_CORN">
+                    <input type="checkbox" id="ALLERGEN_CORN" name = "checkboxes">
                     <label for="ALLERGEN_CORN">Corn</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_SESAME">
+                    <input type="checkbox" id="ALLERGEN_SESAME" name = "checkboxes">
                     <label for="ALLERGEN_SESAME">Sesame</label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ALLERGEN_MUSTARD">
+                    <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
                     <label for="ALLERGEN_MUSTARD">Mustard</label>
                 </p>
-                <div class="inline_button">Update Allergens</div>
+                <div class="inline_button" onclick="handleAllergens()">Update Allergens</div>
                 <div class="spacer"></div>
                 <p>Need help? <a href="index.html">Contact Us!</a></p>
             </div>
@@ -83,5 +83,14 @@
             var username = document.getElementById("NAME_INPUT").value 
             document.getElementById("NAME_CURRENT").innerHTML = username
         }
+        function handleAllergens() {
+            console.log("The following allergens are selected:");
+            var checkboxes = document.getElementsByName("checkboxes");
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                console.log(checkboxes[i].id);
+                }
+            }
+}
         </script>
 </html>
