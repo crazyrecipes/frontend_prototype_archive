@@ -18,62 +18,71 @@
         <div class="app_main">
             <img class="logo" src="media/recipebuddy.png">
 
-            <div class="search_container">
-                <div class="search_content">
-                    <h3>Create a Recipe</h3>
-                    <input class="text_field" id="SEARCH_TEXT"></input>
-                    <p>
+            <div class="content_container">
+                <div class="content_inner">
+                    <h2>Create a Recipe</h2>
+
+                    <div class="spacer"></div>
+
+                    <h3>Name</h3>
+                    <input class="text_field" id="RECIPE_NAME" placeholder="Enter the recipe's name here..."></input>
+
+                    <div class="spacer"></div>
+                    
+                    <h3>Ingredients</h3>
+                    <textarea id="RECIPE_INGREDIENTS" class="text_field_big" rows="10" placeholder="Enter each ingredient on its own line..."></textarea>
+                    
+                    <div class="spacer"></div>
+
+                    <h3>Instructions</h3>
+                    <textarea id="RECIPE_INSTRUCTIONS" class="text_field_big" rows="10" placeholder="Enter each instruction on its own line..."></textarea>
+                    
+                    <div class="spacer"></div>
+
+                    <h3>Tags</h3>
+                    <textarea id="RECIPE_TAGS" class="text_field_big" rows="5" placeholder="Enter each tag on its own line..."></textarea>
+                    
+                    <div class="spacer"></div>
 
                     <h3>Time</h3>
+                    <input type="radio" name="TIME_INPUT" value="NOPREF" checked>
+                    <label>No Preference</label><br>
+                    <input type="radio" name="TIME_INPUT" value="BREAKFAST">
+                    <label>Breakfast</label><br>
+                    <input type="radio" name="TIME_INPUT" value="LUNCH">
+                    <label>Lunch</label><br>
+                    <input type="radio" name="TIME_INPUT" value="DINNER">
+                    <label>Dinner</label><br>
 
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="NOPREF" checked>
-                        <label>No Preference</label>
-                    </p>
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="BREAKFAST">
-                        <label>Breakfast</label>
-
-                    </p>
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="LUNCH">
-                        <label>Lunch</label>
-                    </p>
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="DINNER">
-                        <label>Dinner</label>
-                    </p>
-
-                    <h3>Ingredients</h3>
-
-                    <p>
-                        <input type="radio" name="INGREDIENTS_INPUT" value="ALL">
-                        <label>Show only recipes I have everything for</label>
-                    </p>
-
-                    <p>
-                        <input type="radio" name="INGREDIENTS_INPUT" value="SOME" checked>
-                        <label>Show more recipes (1 or 2 things missing)</label>
-                    </p>
-
-                    <p>
-                        <input type="radio" name="INGREDIENTS_INPUT" value="NONE">
-                        <label>Don't filter by ingredients</label>
-                    </p>
-
+                    <div class="spacer"></div>
+                    
                     <h3>Allergens</h3>
+                    <input type="checkbox" id="ALLERGEN_PEANUTS" name = "checkboxes">
+                    <label for="ALLERGEN_PEANUTS">Peanuts</label><br>
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name = "checkboxes">
+                    <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label><br>
+                    <input type="checkbox" id="ALLERGEN_DAIRY" name = "checkboxes">
+                    <label for="ALLERGEN_DAIRY">Dairy</label><br>
+                    <input type="checkbox" id="ALLERGEN_SOY" name = "checkboxes">
+                    <label for="ALLERGEN_SOY">Soy</label><br>
+                    <input type="checkbox" id="ALLERGEN_GLUTEN" name = "checkboxes">
+                    <label for="ALLERGEN_GLUTEN">Gluten</label><br>
+                    <input type="checkbox" id="ALLERGEN_EGG" name = "checkboxes">
+                    <label for="ALLERGEN_EGG">Egg</label><br>
+                    <input type="checkbox" id="ALLERGEN_FISH" name = "checkboxes">
+                    <label for="ALLERGEN_FISH">Fish</label><br>
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name = "checkboxes">
+                    <label for="ALLERGEN_SHELLFISH">Shellfish</label><br>
+                    <input type="checkbox" id="ALLERGEN_CORN" name = "checkboxes">
+                    <label for="ALLERGEN_CORN">Corn</label><br>
+                    <input type="checkbox" id="ALLERGEN_SESAME" name = "checkboxes">
+                    <label for="ALLERGEN_SESAME">Sesame</label><br>
+                    <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
+                    <label for="ALLERGEN_MUSTARD">Mustard</label><br>
 
-                    <p>
-                        <input type="radio" name="ALLERGENS_INPUT" value="BLOCK" checked>
-                        <label>Don't show recipes with my allergens</label>
-                    </p>
-
-                    <p>
-                        <input type="radio" name="ALLERGENS_INPUT" value="SHOW">
-                        <label>Show recipes with my allergens</label>
-                    </p>
-
-                    <button class="inline_button" onclick="do_search()">Search</button>
+                    <div class="spacer"></div>
+                    
+                    <button class="inline_button" onclick="do_create()">Create Recipe</button>
                 </div>
             </div>
 
