@@ -41,6 +41,7 @@
             const RECIPELIST_URL = "api/recipes"
             
             function display_recipe_list() {
+                console.log("Handling DISPLAY recipes...")
                 fetch(RECIPELIST_URL, {
                     method: "GET",
                     headers: {

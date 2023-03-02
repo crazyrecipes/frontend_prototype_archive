@@ -20,12 +20,22 @@
         <div class="pantry_container">
             <div class="pantry_content">
                 <h3>My Pantry</h3>
-                <p><i>Click on an ingredient's thumbnail to remove it.</i></p>
+
+                <h3>My Ingredients</h3>
 
                 <div id="INGREDIENT_LIST"></div>
                 <div class="spacer"></div>
                 <p>Add an ingredient</p>
                 <div><input class="text_field" id="INGREDIENT_ADD_INPUT"></div>
+                <button class="inline_button">Add</button>
+
+                <div class="spacer"></div>
+
+                <h3>My Implements</h3>
+                <div class="spacer"></div>
+                <div id="IMPLEMENT_LIST"></div>
+                <p>Add an implement</p>
+                <div><input class="text_field" id="IMPLEMENT_ADD_INPUT"></div>
                 <button class="inline_button">Add</button>
 
             </div>
@@ -34,8 +44,13 @@
 
     <script>
         const INGREDIENTS_URL = "api/ingredients"
+
+        function handleRemoveIngredient(id) {
+            console.log("Handling REMOVE ingredient " + id);
+        }
         
         function display_ingredients() {
+            console.log("Handling DISPLAY ingredients...");
             fetch(INGREDIENTS_URL, {
                 method: "GET",
                 headers: {
@@ -50,8 +65,8 @@
                     console.log(ingredient);
                     var ingredientHTML = `
                     <div class="pantry_entry">
-                        <img class="pantry_entry_thumbnail" src="${ingredient.photo}">
-                        <div class="pantry_entry_text">${ingredient.name}</div>
+                        ${ingredient.name}
+                        <button class="inline_button" onClick="handleRemoveIngredient(${ingredient.id})">X</button>
                     </div>
                     `
                     formatted_result += ingredientHTML;

@@ -177,24 +177,7 @@ p {
 }
 
 .pantry_entry {
-    display: grid;
-    grid-template-columns: 50px auto;
     padding: 12px 0px 0px 0px;
-}
-
-.pantry_entry_thumbnail {
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    box-sizing: border-box;
-}
-
-.pantry_entry_thumbnail:hover {
-    border: 25px solid black;
-}
-
-.pantry_entry_text {
-    padding: 14px 4px 14px 8px;
 }
 
 /* ===== SEARCH ===== */

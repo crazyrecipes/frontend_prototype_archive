@@ -2,13 +2,11 @@
     "ingredients": [
         {
             "id": "0",
-            "name": "tortilla",
-            "photo": "media/test.jpg"
+            "name": "Tortilla"
         },
         {
             "id": "1",
-            "name": "onion",
-            "photo": "media/test.jpg"
+            "name": "Onion"
         }
     ]
 }

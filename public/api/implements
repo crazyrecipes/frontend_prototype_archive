@@ -1,12 +1,12 @@
 {
-    "allergens": [
+    "implements": [
         {
             "id": "0",
-            "name": "Gluten"
+            "name": "Frying Pan"
         },
         {
             "id": "1",
-            "name": "Soy"
+            "name": "Spatula"
         }
     ]
 }
