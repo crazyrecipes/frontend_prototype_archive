@@ -20,7 +20,7 @@
             <div class="search_container">
                 <div class="search_content">
                     <h3>Search Recipes</h3>
-                    <input class="text_field" id="SEARCH_TEXT"></input>
+                    <input class="text_field" id="SEARCH_TITLE"></input>
                     <p>
 
                     <h3>Time</h3>
@@ -72,37 +72,79 @@
                         <label>Show recipes with my allergens</label>
                     </p>
 
-                    <button class="inline_button">Search</button>
+                    <button class="inline_button" onclick="do_search()">Search</button>
                 </div>
             </div>
 
             <div class="spacer"></div>
-            <div class="spacer"></div>
-
-            <div class="search_container">
-                <div class="search_content">
-                    <h2>Search Results</h2>
-                </div>
-            </div>
 
             <div id="SEARCH_RESULTS"></div>
         </div>
 
         <script>
-            const RECIPELIST_URL = "api/recipes"
+            const RECIPELIST_URL = "api/search"
             
-            function display_recipe_list() {
+            function do_search() {
+                /* Get title */
+                var search_title = document.getElementById("SEARCH_TITLE").value;
+
+                /* Get time choice */
+                var time_inputs = document.getElementsByName("TIME_INPUT");
+                var search_time = "NOPREF";
+                for(i = 0; i < time_inputs.length; i++) {
+                    if(time_inputs[i].checked) {
+                        search_time = time_inputs[i].value;
+                        break;
+                    }
+                }
+
+                /* Get ingredients choice */
+                var ingredients_inputs = document.getElementsByName("INGREDIENTS_INPUT");
+                var search_ingredients = "SOME";
+                for(i = 0; i < ingredients_inputs.length; i++) {
+                    if(ingredients_inputs[i].checked) {
+                        search_ingredients = ingredients_inputs[i].value;
+                        break;
+                    }
+                }
+
+                /* Get allergens choice */
+                var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
+                var search_allergens = "BLOCK";
+                for(i = 0; i < allergens_inputs.length; i++) {
+                    if(allergens_inputs[i].checked) {
+                        search_allergens = allergens_inputs[i].value;
+                        break;
+                    }
+                }
+
+                /* Assemble query JSON */
+                const SEARCH_JSON = `
+                {
+                    "query": {
+                        "title": "${search_title}",
+                        "time": "${search_time}",
+                        "ingredients": "${search_ingredients}",
+                        "allergens": "${search_allergens}",
+                    }
+                }
+                `
+
+                /* Send request and display results */
+                document.getElementById("SEARCH_RESULTS").innerHTML = "Loading results...";
                 fetch(RECIPELIST_URL, {
-                    method: "GET",
+                    method: "POST",
                     headers: {
                         "Accept": "application/json",
+                        "Content-Type": "application/json",
                     },
+                    body: SEARCH_JSON,
                 }).then(async response => {
                     const data = await response.json();
                     console.log(data);
                     formatted_result = "";
-                    for(let i in data.recipes) {
-                        let recipe = data.recipes[i];
+                    for(let i in data.results) {
+                        let recipe = data.results[i];
                         console.log(recipe);
                         var recipeHTML = `
                         <div class="recipepreview_container">
@@ -119,15 +161,16 @@
                         `
                         formatted_result += recipeHTML;
                     }
-
-                    document.getElementById("SEARCH_RESULTS").innerHTML = formatted_result;
+                    if(data.results.length > 0) {
+                        document.getElementById("SEARCH_RESULTS").innerHTML = formatted_result;
+                    } else {
+                        document.getElementById("SEARCH_RESULTS").innerHTML = "No Results!";
+                    }
                 });
                 /*.catch(error => {
                     document.getElementById("RECIPE_LIST").innerHTML = "Error!";
                 });*/
             }
-        
-            display_recipe_list();
         </script>
     </body>
 </html>
