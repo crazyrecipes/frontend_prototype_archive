@@ -1,49 +1,195 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Editor</title>
+        <title>Edit Recipe</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <div class="navbar">
-        <a href="index.html"><div class="navbar_item">Home</div></a>
-        <a href="list.html"><div class="navbar_item">My Recipes</div></a>
-        <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
-        <a href="settings.html"><div class="navbar_item">Settings</div></a>
-        <a href="login.html"><div class="navbar_item">Log in</div></a>
-        <a href="editor.html"><div class="navbar_item">Editor (Demo)</div></a>
-        <a href="viewer.html"><div class="navbar_item">Viewer (Demo)</div></a>
-    </div>
 
-
-    <div class="app_main">
-        <img class="logo" src="media/recipebuddy.png">
-
-        <div class="recipeeditor_container">
-            <div class="recipeeditor_photoframe">
-                <img class="recipeeditor_photo" src="media/test.jpg">
-            </div>
-            <div class="recipeeditor_content">
-                <h2>The Collins Burrito</h2>
-                <div class="inline_button">Edit Name</div>
-                <div class="inline_button">Change Photo</div>
-                <div class="spacer"></div>
-
-                <h3>Ingredients</h3>
-                <p>Tortilla</p>
-                <p>Ranch Dressing</p>
-                <p>Onion</p>
-                <div class="inline_button">Edit Ingredients</div>
-                <div class="spacer"></div>
-
-                <h3>Instructions</h3>
-                <p>Lay 1 tortilla out on a plate.</p>
-                <p>Add Onion.</p>
-                <p>Add Ranch Dressing.</p>
-                <p>Serve.</p>
-                <div class="inline_button">Edit Instructions</div>
-                <div class="spacer"></div>
-            </div>
+    <body>
+        <div class="navbar">
+            <a href="index.html"><div class="navbar_item">Home</div></a>
+            <a href="list.html"><div class="navbar_item">My Recipes</div></a>
+            <a href="search.html"><div class="navbar_item">Search</div></a>
+            <a href="create.html"><div class="navbar_item">Create</div></a>
+            <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
+            <a href="settings.html"><div class="navbar_item">Settings</div></a>
         </div>
 
-    </div>
+        <div class="app_main">
+            <img class="logo" src="media/recipebuddy.png">
+
+            <div class="content_container">
+                <div class="content_inner">
+                    <h1>Create a Recipe</h1>
+
+                    <div class="spacer"></div>
+
+                    <h3>Name</h3>
+                    <input class="text_field" id="RECIPE_NAME" placeholder="Enter the recipe's name here..."></input>
+
+                    <div class="spacer"></div>
+                    
+                    <h3>Ingredients</h3>
+                    <textarea id="RECIPE_INGREDIENTS" class="text_field_big" rows="10" placeholder="Enter each ingredient on its own line..."></textarea>
+                    
+                    <div class="spacer"></div>
+
+                    <h3>Instructions</h3>
+                    <textarea id="RECIPE_INSTRUCTIONS" class="text_field_big" rows="10" placeholder="Enter each instruction on its own line..."></textarea>
+                    
+                    <div class="spacer"></div>
+
+                    <h3>Tags</h3>
+                    <textarea id="RECIPE_TAGS" class="text_field_big" rows="5" placeholder="Enter each tag on its own line..."></textarea>
+                    
+                    <div class="spacer"></div>
+
+                    <h3>Time</h3>
+                    <input type="radio" name="TIME_INPUT" value="NOPREF" checked>
+                    <label>No Preference</label><br>
+                    <input type="radio" name="TIME_INPUT" value="BREAKFAST">
+                    <label>Breakfast</label><br>
+                    <input type="radio" name="TIME_INPUT" value="LUNCH">
+                    <label>Lunch</label><br>
+                    <input type="radio" name="TIME_INPUT" value="DINNER">
+                    <label>Dinner</label><br>
+
+                    <div class="spacer"></div>
+                    
+                    <h3>Allergens</h3>
+                    <input type="checkbox" id="ALLERGEN_PEANUTS" name = "checkboxes">
+                    <label for="ALLERGEN_PEANUTS">Peanuts</label><br>
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name = "checkboxes">
+                    <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label><br>
+                    <input type="checkbox" id="ALLERGEN_DAIRY" name = "checkboxes">
+                    <label for="ALLERGEN_DAIRY">Dairy</label><br>
+                    <input type="checkbox" id="ALLERGEN_SOY" name = "checkboxes">
+                    <label for="ALLERGEN_SOY">Soy</label><br>
+                    <input type="checkbox" id="ALLERGEN_GLUTEN" name = "checkboxes">
+                    <label for="ALLERGEN_GLUTEN">Gluten</label><br>
+                    <input type="checkbox" id="ALLERGEN_EGG" name = "checkboxes">
+                    <label for="ALLERGEN_EGG">Egg</label><br>
+                    <input type="checkbox" id="ALLERGEN_FISH" name = "checkboxes">
+                    <label for="ALLERGEN_FISH">Fish</label><br>
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name = "checkboxes">
+                    <label for="ALLERGEN_SHELLFISH">Shellfish</label><br>
+                    <input type="checkbox" id="ALLERGEN_CORN" name = "checkboxes">
+                    <label for="ALLERGEN_CORN">Corn</label><br>
+                    <input type="checkbox" id="ALLERGEN_SESAME" name = "checkboxes">
+                    <label for="ALLERGEN_SESAME">Sesame</label><br>
+                    <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
+                    <label for="ALLERGEN_MUSTARD">Mustard</label><br>
+
+                    <div class="spacer"></div>
+                    
+                    <button class="inline_button" onclick="do_create()">Create Recipe</button>
+                </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div id="SEARCH_RESULTS"></div>
+        </div>
+
+        <script>
+            const RECIPELIST_URL = "api/search"
+            
+            /* Execute a search and display results */
+            function do_search() {
+                console.log("Handling SEARCH...");
+                /* Get title */
+                var search_text = document.getElementById("SEARCH_TEXT").value;
+                console.log(`..for text "${search_text}"`)
+
+                /* Get time choice */
+                var time_inputs = document.getElementsByName("TIME_INPUT");
+                var search_time = "NOPREF";
+                for(i = 0; i < time_inputs.length; i++) {
+                    if(time_inputs[i].checked) {
+                        search_time = time_inputs[i].value;
+                        break;
+                    }
+                }
+                console.log(`..for time "${search_time}"`)
+
+                /* Get ingredients choice */
+                var ingredients_inputs = document.getElementsByName("INGREDIENTS_INPUT");
+                var search_ingredients = "SOME";
+                for(i = 0; i < ingredients_inputs.length; i++) {
+                    if(ingredients_inputs[i].checked) {
+                        search_ingredients = ingredients_inputs[i].value;
+                        break;
+                    }
+                }
+                console.log(`..for ingredients "${search_ingredients}"`)
+
+                /* Get allergens choice */
+                var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
+                var search_allergens = "BLOCK";
+                for(i = 0; i < allergens_inputs.length; i++) {
+                    if(allergens_inputs[i].checked) {
+                        search_allergens = allergens_inputs[i].value;
+                        break;
+                    }
+                }
+                console.log(`..for allergens "${search_allergens}"`)
+
+                /* Assemble query JSON */
+                const SEARCH_JSON = `
+                {
+                    "query": {
+                        "title": "${search_text}",
+                        "time": "${search_time}",
+                        "ingredients": "${search_ingredients}",
+                        "allergens": "${search_allergens}",
+                    }
+                }
+                `
+
+                console.log("Getting results...");
+
+                /* Send request and display results */
+                document.getElementById("SEARCH_RESULTS").innerHTML = "Loading results...";
+                fetch(RECIPELIST_URL, {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: SEARCH_JSON,
+                }).then(async response => {
+                    const data = await response.json();
+                    console.log("[DEBUG] Got data:");
+                    console.log(data);
+                    formatted_result = "";
+                    for(let i in data.results) {
+                        let recipe = data.results[i];
+                        console.log("[DEBUG] Processing recipe:");
+                        console.log(recipe);
+                        var recipeHTML = `
+                        <div class="recipepreview_container">
+                            <img class="recipepreview_photo" src="${recipe.photo}">
+                            <div class="recipepreview_content">
+                                <h2>${recipe.name}</h2>
+                                <p>${recipe.rating}&#9733; - Cooked ${recipe.cooked} times.</p>
+                                <a href="viewer?id=${recipe.id}"><div class="inline_button">Make It</div></a>
+                                <a href="editor?id=${recipe.id}"><div class="inline_button">Edit</div></a>
+                            </div>
+                        </div>
+                        `
+                        formatted_result += recipeHTML;
+                    }
+                    if(data.results.length > 0) {
+                        console.log("Displaying results...");
+                        document.getElementById("SEARCH_RESULTS").innerHTML = formatted_result;
+                    } else {
+                        document.getElementById("SEARCH_RESULTS").innerHTML = "No Results!";
+                    }
+                });
+                /*.catch(error => {
+                    document.getElementById("RECIPE_LIST").innerHTML = "Error!";
+                });*/
+            }
+        </script>
+    </body>
 </html>
