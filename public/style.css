@@ -66,7 +66,7 @@ p {
 
 .text_field {
     font: inherit;
-    width: 300px;
+    width: 500px;
     margin: 8px 0;
     border: 1px solid black;
     padding: 6px;
@@ -126,27 +126,6 @@ p {
     margin: 30px auto;
     background: white;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-}
-
-.recipepreview_photoframe {
-    width: 100%;
-    height: 120px;
-    overflow: hidden;
-}
-
-.recipepreview_photo {
-    width: 100%;
-}
-
-/* ===== RECIPE PREVIEW ===== */
-
-.recipepreview_container {
-    width: 80%;
-    max-width: 800px;
-    padding: 0;
-    margin: 30px auto;
-    background: white;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     border-radius: 5px;
     display: grid;
     grid-template-columns: 200px auto;
@@ -161,6 +140,14 @@ p {
     width: 200px;
     height: 200px;
     object-fit: cover;
+}
+
+/* ===== Recipe Viewer ===== */
+.recipeviewer_photo {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 /* ===== PANTRY ===== */

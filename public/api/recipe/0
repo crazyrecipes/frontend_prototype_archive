@@ -1,6 +1,7 @@
 {
     "id": "0",
     "name": "The Collins Burger",
+    "desc": "A good meal!",
     "photo": "media/test.jpg",
     "rating": "4.1",
     "cooked": "6",
@@ -8,6 +9,10 @@
         "bread",
         "onion",
         "ranch"
+    ],
+    "implements": [
+        "frying pan",
+        "spatula"
     ],
     "steps": [
         "Cook bread for 30 minutes.",

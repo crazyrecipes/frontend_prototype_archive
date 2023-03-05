@@ -1,12 +1,10 @@
-{
-    "ingredients": [
-        {
-            "id": "0",
-            "name": "Tortilla"
-        },
-        {
-            "id": "1",
-            "name": "Onion"
-        }
-    ]
-}
+[
+    {
+        "id": "0",
+        "name": "Tortilla"
+    },
+    {
+        "id": "1",
+        "name": "Onion"
+    }
+]

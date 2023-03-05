@@ -1,12 +1,10 @@
-{
-    "implements": [
-        {
-            "id": "0",
-            "name": "Frying Pan"
-        },
-        {
-            "id": "1",
-            "name": "Spatula"
-        }
-    ]
-}
+[
+    {
+        "id": "0",
+        "name": "Frying Pan"
+    },
+    {
+        "id": "1",
+        "name": "Spatula"
+    }
+]

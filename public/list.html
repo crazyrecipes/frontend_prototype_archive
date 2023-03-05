@@ -43,8 +43,8 @@
                     const data = await response.json();
                     console.log(data);
                     formatted_result = "";
-                    for(let i in data.recipes) {
-                        let recipe = data.recipes[i];
+                    for(let i in data) {
+                        let recipe = data[i];
                         console.log(recipe);
                         var recipeHTML = `
                         <div class="recipepreview_container">
@@ -61,10 +61,10 @@
                     }
 
                     document.getElementById("RECIPE_LIST").innerHTML = formatted_result;
+                }).catch(error => {
+                console.log(error);
+                window.alert("Error encountered! Please check the console for more details.");
                 });
-                /*.catch(error => {
-                    document.getElementById("RECIPE_LIST").innerHTML = "Error!";
-                });*/
             }
         
             /* ===== On page load: ===== */

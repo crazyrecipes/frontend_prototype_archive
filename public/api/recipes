@@ -1,54 +1,58 @@
-{
-    "recipes": [
-        {
-            "id": "0",
-            "name": "The Collins Burger",
-            "photo": "media/test.jpg",
-            "rating": "4.1",
-            "cooked": "6",
-            "ingredients": [
-                "bread",
-                "onion",
-                "ranch"
-            ],
-            "steps": [
-                "Cook bread for 30 minutes.",
-                "Cook onion for 5 minutes.",
-                "Apply ranch."
-            ],
-            "allergens": [
-                "GLUTEN",
-                "SHELLFISH"
-            ],
-            "tags": [
-                "quick",
-                "family"
-            ]
-        },
-        {
-            "id": "1",
-            "name": "The Collins Burrito",
-            "photo": "media/test.jpg",
-            "rating": "4.7",
-            "cooked": "7",
-            "ingredients": [
-                "tortilla",
-                "onion",
-                "ranch"
-            ],
-            "steps": [
-                "Cook tortilla for 30 minutes.",
-                "Cook onion for 5 minutes.",
-                "Apply ranch."
-            ],
-            "allergens": [
-                "GLUTEN",
-                "SHELLFISH"
-            ],
-            "tags": [
-                "quick",
-                "family"
-            ]
-        }
-    ]
-}
+[
+    {
+        "id": "0",
+        "name": "The Collins Burger",
+        "desc": "A good meal!",
+        "photo": "media/test.jpg",
+        "rating": "4.1",
+        "cooked": "6",
+        "ingredients": [
+            "bread",
+            "onion",
+            "ranch"
+        ],
+        "steps": [
+            "Cook bread for 30 minutes.",
+            "Cook onion for 5 minutes.",
+            "Apply ranch."
+        ],
+        "allergens": [
+            "GLUTEN",
+            "SHELLFISH"
+        ],
+        "tags": [
+            "quick",
+            "family"
+        ]
+    },
+    {
+        "id": "1",
+        "name": "The Collins Burrito",
+        "desc": "A great meal!",
+        "photo": "media/test.jpg",
+        "rating": "4.7",
+        "cooked": "7",
+        "ingredients": [
+            "tortilla",
+            "onion",
+            "ranch"
+        ],
+        "implements": [
+            "frying pan",
+            "spatula"
+        ],
+        "steps": [
+            "Cook tortilla for 30 minutes.",
+            "Cook onion for 5 minutes.",
+            "Apply ranch."
+        ],
+        "allergens": [
+            "GLUTEN",
+            "SHELLFISH"
+        ],
+        "tags": [
+            "quick",
+            "family"
+        ]
+    }
+]

@@ -22,54 +22,26 @@
                 <div class="content_inner">
                     <h1>Search Recipes</h1>
                     <input class="text_field" id="SEARCH_TEXT" placeholder="Enter search keyword(s) here..."></input>
-                    <h3>Time</h3>
-
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="NOPREF" checked>
-                        <label>No Preference</label>
-                    </p>
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="BREAKFAST">
-                        <label>Breakfast</label>
-
-                    </p>
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="LUNCH">
-                        <label>Lunch</label>
-                    </p>
-                    <p>
-                        <input type="radio" name="TIME_INPUT" value="DINNER">
-                        <label>Dinner</label>
-                    </p>
-
+                    <input class="text_field" id="SEARCH_TAGS" placeholder="Enter search tag(s) here, separated by commas."></input>
+                    
                     <h3>Ingredients</h3>
 
-                    <p>
-                        <input type="radio" name="INGREDIENTS_INPUT" value="ALL">
-                        <label>Show only recipes I have everything for</label>
-                    </p>
+                    <input type="radio" name="INGREDIENTS_INPUT" value="ALL">
+                    <label>Show only recipes I have everything for</label><br>
 
-                    <p>
-                        <input type="radio" name="INGREDIENTS_INPUT" value="SOME" checked>
-                        <label>Show more recipes (1 or 2 things missing)</label>
-                    </p>
+                    <input type="radio" name="INGREDIENTS_INPUT" value="SOME" checked>
+                    <label>Show more recipes (1 or 2 things missing)</label><br>
 
-                    <p>
-                        <input type="radio" name="INGREDIENTS_INPUT" value="NONE">
-                        <label>Don't filter by ingredients</label>
-                    </p>
+                    <input type="radio" name="INGREDIENTS_INPUT" value="NONE">
+                    <label>Don't filter by ingredients</label><br>
 
                     <h3>Allergens</h3>
 
-                    <p>
-                        <input type="radio" name="ALLERGENS_INPUT" value="BLOCK" checked>
-                        <label>Don't show recipes with my allergens</label>
-                    </p>
+                    <input type="radio" name="ALLERGENS_INPUT" value="BLOCK" checked>
+                    <label>Don't show recipes with my allergens</label><br>
 
-                    <p>
-                        <input type="radio" name="ALLERGENS_INPUT" value="SHOW">
-                        <label>Show recipes with my allergens</label>
-                    </p>
+                    <input type="radio" name="ALLERGENS_INPUT" value="SHOW">
+                    <label>Show recipes with my allergens</label><br>
 
                     <button class="inline_button" onclick="do_search()">Search</button>
                 </div>
@@ -90,16 +62,9 @@
                 var search_text = document.getElementById("SEARCH_TEXT").value;
                 console.log(`..for text "${search_text}"`)
 
-                /* Get time choice */
-                var time_inputs = document.getElementsByName("TIME_INPUT");
-                var search_time = "NOPREF";
-                for(i = 0; i < time_inputs.length; i++) {
-                    if(time_inputs[i].checked) {
-                        search_time = time_inputs[i].value;
-                        break;
-                    }
-                }
-                console.log(`..for time "${search_time}"`)
+                /* Get tags */
+                var search_tags = document.getElementById("SEARCH_TAGS").value;
+                console.log(`..for tags "${search_tags}"`)
 
                 /* Get ingredients choice */
                 var ingredients_inputs = document.getElementsByName("INGREDIENTS_INPUT");
@@ -128,7 +93,7 @@
                 {
                     "query": {
                         "title": "${search_text}",
-                        "time": "${search_time}",
+                        "tags": "${search_tags}",
                         "ingredients": "${search_ingredients}",
                         "allergens": "${search_allergens}",
                     }
@@ -151,8 +116,8 @@
                     console.log("[DEBUG] Got data:");
                     console.log(data);
                     formatted_result = "";
-                    for(let i in data.results) {
-                        let recipe = data.results[i];
+                    for(let i in data) {
+                        let recipe = data[i];
                         console.log("[DEBUG] Processing recipe:");
                         console.log(recipe);
                         var recipeHTML = `
@@ -168,16 +133,16 @@
                         `
                         formatted_result += recipeHTML;
                     }
-                    if(data.results.length > 0) {
+                    if(data.length > 0) {
                         console.log("Displaying results...");
                         document.getElementById("SEARCH_RESULTS").innerHTML = formatted_result;
                     } else {
                         document.getElementById("SEARCH_RESULTS").innerHTML = "No Results!";
                     }
+                }).catch(error => {
+                console.log(error);
+                window.alert("Error encountered! Please check the console for more details.");
                 });
-                /*.catch(error => {
-                    document.getElementById("RECIPE_LIST").innerHTML = "Error!";
-                });*/
             }
         </script>
     </body>

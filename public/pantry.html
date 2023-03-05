@@ -82,8 +82,8 @@
                 console.log("[DEBUG] Got data:");
                 console.log(data);
                 formatted_result = "";
-                for(let i in data.ingredients) {
-                    let ingredient = data.ingredients[i];
+                for(let i in data) {
+                    let ingredient = data[i];
                     console.log("[DEBUG] Processing ingredient:");
                     console.log(ingredient);
                     var ingredientHTML = `
@@ -96,10 +96,10 @@
                 }
 
                 document.getElementById("INGREDIENT_LIST").innerHTML = formatted_result;
-            });
-            /*.catch(error => {
-                document.getElementById("RECIPE_LIST").innerHTML = "Error!";
-            });*/
+            }).catch(error => {
+                console.log(error);
+                window.alert("Error encountered! Please check the console for more details.");
+            })
         }
 
         /* Get and display all implements */
@@ -115,8 +115,8 @@
                 console.log("[DEBUG] Got data:");
                 console.log(data);
                 formatted_result = "";
-                for(let i in data.implements) {
-                    let implement = data.implements[i];
+                for(let i in data) {
+                    let implement = data[i];
                     console.log("[DEBUG] Processing implement:");
                     console.log(implement);
                     var implementHTML = `
@@ -129,10 +129,10 @@
                 }
 
                 document.getElementById("IMPLEMENT_LIST").innerHTML = formatted_result;
-            });
-            /*.catch(error => {
-                document.getElementById("RECIPE_LIST").innerHTML = "Error!";
-            });*/
+            }).catch(error => {
+                console.log(error);
+                window.alert("Error encountered! Please check the console for more details.");
+            })
         }
 
         /* ===== On page load: ===== */

@@ -1,6 +1,7 @@
 {
     "id": "1",
     "name": "The Collins Burrito",
+    "desc": "A great meal!",
     "photo": "media/test.jpg",
     "rating": "4.7",
     "cooked": "7",
@@ -8,6 +9,10 @@
         "tortilla",
         "onion",
         "ranch"
+    ],
+    "implements": [
+        "frying pan",
+        "spatula"
     ],
     "steps": [
         "Cook tortilla for 30 minutes.",
