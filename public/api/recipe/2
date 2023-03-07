@@ -1,13 +1,13 @@
 {
-    "id": "1",
-    "name": "The Collins Burrito",
-    "desc": "A great meal!",
+    "id": "2",
+    "name": "Tomato Sandwich",
+    "desc": "An ...interesting meal.",
     "photo": "media/test.jpg",
-    "rating": "4.7",
-    "cooked": "7",
+    "rating": "2.9",
+    "cooked": "1",
     "ingredients": [
-        "Tortilla",
-        "Onion",
+        "Tomato",
+        "Beef",
         "Ranch"
     ],
     "implements": [
@@ -15,9 +15,10 @@
         "Spatula"
     ],
     "steps": [
-        "Cook tortilla for 30 minutes.",
-        "Cook onion for 5 minutes.",
-        "Apply ranch."
+        "Cook beef for 30 minutes.",
+        "Cook tomato for 5 minutes.",
+        "Apply ranch.",
+        "Construct."
     ],
     "allergens": [
         "Gluten",

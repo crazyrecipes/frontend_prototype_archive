@@ -6,5 +6,13 @@
     {
         "id": "1",
         "name": "Onion"
+    },
+    {
+        "id": "2",
+        "name": "Beef"
+    },
+    {
+        "id": "3",
+        "name": "Tomato"
     }
 ]
