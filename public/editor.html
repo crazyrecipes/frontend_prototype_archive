@@ -84,7 +84,7 @@
 
                     <div class="spacer"></div>
                     
-                    <button class="inline_button" onclick="do_create()">Create Recipe</button>
+                    <button class="inline_button" onclick="do_edit()">Edit Recipe</button>
                 </div>
             </div>
 
@@ -138,8 +138,8 @@
                 });
             }
 
-            /* Execute a search and display results */
-            function do_create() {
+            /* Edit the recipe */
+            function do_edit() {
                 console.log("Handling CREATE recipe...");
 
                 /* Get name */
@@ -174,7 +174,7 @@
                         recipe_allergens = recipe_allergens.concat(allergens_inputs[i].value, "\n");
                     }
                 }
-                console.log(`..for allergens "${recipe_allergens}"`);
+                console.log(`..with allergens "${recipe_allergens}"`);
 
                 /* Get tags */
                 var recipe_tags = document.getElementById("RECIPE_TAGS").value;
@@ -199,8 +199,8 @@
                 console.log("Sending request...");
 
                 /* Send request */
-                fetch(RECIPES_URL, {
-                    method: "POST",
+                fetch(RECIPE_URL, {
+                    method: "PUT",
                     headers: {
                         "Accept": "application/json",
                         "Content-Type": "application/json",
@@ -208,7 +208,7 @@
                     body: JSON.stringify(RECIPE_JSON),
                 }).then(async response => {
                     if(!response.ok) {
-                        throw new Error("POST request failed!")
+                        throw new Error("PUT request failed!")
                     }
                     const data = await response.json();
                     console.log("[DEBUG] Got data:");

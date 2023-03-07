@@ -49,7 +49,7 @@
                     <div class="spacer"></div>
 
                     <h3>Instructions</h3>
-                    <textarea id="RECIPE_INSTRUCTIONS" class="text_field_big" rows="10" placeholder="Enter each instruction on its own line..."></textarea>
+                    <textarea id="RECIPE_STEPS" class="text_field_big" rows="10" placeholder="Enter each step on its own line..."></textarea>
                     
                     <div class="spacer"></div>
 
@@ -96,7 +96,7 @@
         <script>
             const RECIPES_URL = "api/recipes"
             
-            /* Execute a search and display results */
+            /* Create a recipe */
             function do_create() {
                 console.log("Handling CREATE recipe...");
 
@@ -120,9 +120,9 @@
                 var recipe_implements = document.getElementById("RECIPE_IMPLEMENTS").value;
                 console.log(`..with implements "${recipe_implements}"`);
 
-                /* Get instructions */
-                var recipe_implements = document.getElementById("RECIPE_INSTRUCTIONS").value;
-                console.log(`..with instructions "${recipe_implements}"`);
+                /* Get steps */
+                var recipe_steps = document.getElementById("RECIPE_STEPS").value;
+                console.log(`..with steps "${recipe_steps}"`);
 
                 /* Get allergens choice */
                 var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
@@ -132,7 +132,7 @@
                         recipe_allergens = recipe_allergens.concat(allergens_inputs[i].value, "\n");
                     }
                 }
-                console.log(`..for allergens "${recipe_allergens}"`);
+                console.log(`..with allergens "${recipe_allergens}"`);
 
                 /* Get tags */
                 var recipe_tags = document.getElementById("RECIPE_TAGS").value;
@@ -149,6 +149,7 @@
                         "ingredients": recipe_ingredients.split('\n'),
                         "implements": recipe_implements.split('\n'),
                         "allergens": recipe_allergens.split('\n'),
+                        "steps": recipe_steps.split('\n'),
                         "tags": recipe_tags.split(','),
                 }
                 
