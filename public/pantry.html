@@ -50,23 +50,27 @@
 
             /* Remove an ingredient from the pantry */
             function handle_remove_ingredient(name) {
+                window.alert(`Removed ingredient ${name}`); // 3/9 pres
                 console.log(`Handling REMOVE ingredient "${name}"`);
             }
 
             /* Remove an implement from the pantry */
             function handle_remove_implement(name) {
+                window.alert(`Removed implement ${name}`); // 3/9 pres
                 console.log(`Handling REMOVE implement "${name}"`);
             }
 
             /* Add an ingredient to the pantry */
             function handle_add_ingredient() {
                 let ingredient_name = document.getElementById("INGREDIENT_ADD_INPUT").value;
+                window.alert(`Added ingredient ${ingredient_name}`); // 3/9 pres
                 console.log(`Handling ADD ingredient "${ingredient_name}"`);
             }
 
             /* Add an implement to the pantry */
             function handle_add_implement() {
                 let implement_name = document.getElementById("IMPLEMENT_ADD_INPUT").value;
+                window.alert(`Added implement ${implement_name}`); // 3/9 pres
                 console.log(`Handling ADD implement "${implement_name}"`);
             }
             
