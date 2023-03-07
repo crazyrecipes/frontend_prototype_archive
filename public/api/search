@@ -7,9 +7,13 @@
         "rating": "4.1",
         "cooked": "6",
         "ingredients": [
-            "bread",
-            "onion",
-            "ranch"
+            "Bread",
+            "Onion",
+            "Ranch"
+        ],
+        "implements": [
+            "Frying pan",
+            "Spatula"
         ],
         "steps": [
             "Cook bread for 30 minutes.",
@@ -17,8 +21,8 @@
             "Apply ranch."
         ],
         "allergens": [
-            "GLUTEN",
-            "SHELLFISH"
+            "Gluten",
+            "Dairy"
         ],
         "tags": [
             "quick",
@@ -33,13 +37,13 @@
         "rating": "4.7",
         "cooked": "7",
         "ingredients": [
-            "tortilla",
-            "onion",
-            "ranch"
+            "Tortilla",
+            "Onion",
+            "Ranch"
         ],
         "implements": [
-            "frying pan",
-            "spatula"
+            "Frying pan",
+            "Spatula"
         ],
         "steps": [
             "Cook tortilla for 30 minutes.",
@@ -47,8 +51,39 @@
             "Apply ranch."
         ],
         "allergens": [
-            "GLUTEN",
-            "SHELLFISH"
+            "Gluten",
+            "Dairy"
+        ],
+        "tags": [
+            "quick",
+            "family"
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Tomato Sandwich",
+        "desc": "An ...interesting meal.",
+        "photo": "media/test.jpg",
+        "rating": "2.9",
+        "cooked": "1",
+        "ingredients": [
+            "Tomato",
+            "Beef",
+            "Ranch"
+        ],
+        "implements": [
+            "Frying pan",
+            "Spatula"
+        ],
+        "steps": [
+            "Cook beef for 30 minutes.",
+            "Cook tomato for 5 minutes.",
+            "Apply ranch.",
+            "Construct."
+        ],
+        "allergens": [
+            "Gluten",
+            "Dairy"
         ],
         "tags": [
             "quick",
