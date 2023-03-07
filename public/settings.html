@@ -30,40 +30,28 @@
                     <div class="spacer"></div>
 
                     <h3>Allergens</h3>
-
-                    <input type="checkbox" id="ALLERGEN_PEANUTS" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_PEANUTS" name="ALLERGENS_INPUT" value="Peanuts">
                     <label for="ALLERGEN_PEANUTS">Peanuts</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name="ALLERGENS_INPUT" value="Tree Nuts">
                     <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_DAIRY" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_DAIRY" name="ALLERGENS_INPUT" value="Dairy">
                     <label for="ALLERGEN_DAIRY">Dairy</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_SOY" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_SOY" name="ALLERGENS_INPUT" value="Soy">
                     <label for="ALLERGEN_SOY">Soy</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_GLUTEN" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_GLUTEN" name="ALLERGENS_INPUT" value="Gluten">
                     <label for="ALLERGEN_GLUTEN">Gluten</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_EGG" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_EGG" name="ALLERGENS_INPUT" value="Egg">
                     <label for="ALLERGEN_EGG">Egg</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_FISH" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_FISH" name="ALLERGENS_INPUT" value="Fish">
                     <label for="ALLERGEN_FISH">Fish</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name="ALLERGENS_INPUT" value="Shellfish">
                     <label for="ALLERGEN_SHELLFISH">Shellfish</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_CORN" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_CORN" name="ALLERGENS_INPUT" value="Corn">
                     <label for="ALLERGEN_CORN">Corn</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_SESAME" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_SESAME" name="ALLERGENS_INPUT" value="Sesame">
                     <label for="ALLERGEN_SESAME">Sesame</label><br>
-
-                    <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_MUSTARD" name="ALLERGENS_INPUT" value="Mustard">
                     <label for="ALLERGEN_MUSTARD">Mustard</label><br>
-
                     <div class="inline_button" onclick="handle_allergen_change()">Update Allergens</div>
                     <div class="spacer"></div>
                     <p>Need help? <a href="index.html">Contact Us!</a></p>
@@ -76,13 +64,15 @@
                 document.getElementById("NAME_CURRENT").innerHTML = name
             }
             function handle_allergen_change() {
-                console.log("The following allergens are selected:");
-                var checkboxes = document.getElementsByName("checkboxes");
-                for (var i = 0; i < checkboxes.length; i++) {
-                    if (checkboxes[i].checked) {
-                    console.log(checkboxes[i].id);
+                var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
+                var recipe_allergens = "";
+                for(i = 0; i < allergens_inputs.length; i++) {
+                    if(allergens_inputs[i].checked) {
+                        recipe_allergens = recipe_allergens.concat(allergens_inputs[i].value, ",");
                     }
                 }
+                window.alert(`Updated allergens: "${recipe_allergens}"`)
+                console.log(`Updated allergens: "${recipe_allergens}"`);
             }
         </script>
     </body>
