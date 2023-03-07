@@ -76,10 +76,12 @@
         }
         function handle_allergen_change() {
             console.log("The following allergens are selected:");
+            window.alert("The following allergens are selected"); //for 3/9 presentations
             var checkboxes = document.getElementsByName("checkboxes");
             for (var i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].checked) {
                 console.log(checkboxes[i].id);
+                window.alert(checkboxes[i].id); //for 3/9 presentation
                 }
             }
 }
