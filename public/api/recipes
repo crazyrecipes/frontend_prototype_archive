@@ -7,9 +7,13 @@
         "rating": "4.1",
         "cooked": "6",
         "ingredients": [
-            "bread",
-            "onion",
-            "ranch"
+            "Bread",
+            "Onion",
+            "Ranch"
+        ],
+        "implements": [
+            "Frying pan",
+            "Spatula"
         ],
         "steps": [
             "Cook bread for 30 minutes.",
@@ -33,13 +37,13 @@
         "rating": "4.7",
         "cooked": "7",
         "ingredients": [
-            "tortilla",
-            "onion",
-            "ranch"
+            "Tortilla",
+            "Onion",
+            "Ranch"
         ],
         "implements": [
-            "frying pan",
-            "spatula"
+            "Frying pan",
+            "Spatula"
         ],
         "steps": [
             "Cook tortilla for 30 minutes.",
@@ -47,8 +51,8 @@
             "Apply ranch."
         ],
         "allergens": [
-            "GLUTEN",
-            "SHELLFISH"
+            "Gluten",
+            "Shellfish"
         ],
         "tags": [
             "quick",

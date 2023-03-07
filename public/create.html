@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Create a Recipe</title>
+        <title>Create a Recipe - RecipeBuddy</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -59,27 +59,27 @@
                     <div class="spacer"></div>
                     
                     <h3>Allergens</h3>
-                    <input type="checkbox" id="ALLERGEN_PEANUTS" name="ALLERGENS_INPUT" value="PEANUTS">
+                    <input type="checkbox" id="ALLERGEN_PEANUTS" name="ALLERGENS_INPUT" value="Peanuts">
                     <label for="ALLERGEN_PEANUTS">Peanuts</label><br>
-                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name="ALLERGENS_INPUT" value="TREE_NUTS">
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name="ALLERGENS_INPUT" value="Tree Nuts">
                     <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label><br>
-                    <input type="checkbox" id="ALLERGEN_DAIRY" name="ALLERGENS_INPUT" value="DAIRY">
+                    <input type="checkbox" id="ALLERGEN_DAIRY" name="ALLERGENS_INPUT" value="Dairy">
                     <label for="ALLERGEN_DAIRY">Dairy</label><br>
-                    <input type="checkbox" id="ALLERGEN_SOY" name="ALLERGENS_INPUT" value="SOY">
+                    <input type="checkbox" id="ALLERGEN_SOY" name="ALLERGENS_INPUT" value="Soy">
                     <label for="ALLERGEN_SOY">Soy</label><br>
-                    <input type="checkbox" id="ALLERGEN_GLUTEN" name="ALLERGENS_INPUT" value="GLUTEN">
+                    <input type="checkbox" id="ALLERGEN_GLUTEN" name="ALLERGENS_INPUT" value="Gluten">
                     <label for="ALLERGEN_GLUTEN">Gluten</label><br>
-                    <input type="checkbox" id="ALLERGEN_EGG" name="ALLERGENS_INPUT" value="EGG">
+                    <input type="checkbox" id="ALLERGEN_EGG" name="ALLERGENS_INPUT" value="Egg">
                     <label for="ALLERGEN_EGG">Egg</label><br>
-                    <input type="checkbox" id="ALLERGEN_FISH" name="ALLERGENS_INPUT" value="FISH">
+                    <input type="checkbox" id="ALLERGEN_FISH" name="ALLERGENS_INPUT" value="Fish">
                     <label for="ALLERGEN_FISH">Fish</label><br>
-                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name="ALLERGENS_INPUT" value="SHELLFISH">
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name="ALLERGENS_INPUT" value="Shellfish">
                     <label for="ALLERGEN_SHELLFISH">Shellfish</label><br>
-                    <input type="checkbox" id="ALLERGEN_CORN" name="ALLERGENS_INPUT" value="CORN">
+                    <input type="checkbox" id="ALLERGEN_CORN" name="ALLERGENS_INPUT" value="Corn">
                     <label for="ALLERGEN_CORN">Corn</label><br>
-                    <input type="checkbox" id="ALLERGEN_SESAME" name="ALLERGENS_INPUT" value="SESAME">
+                    <input type="checkbox" id="ALLERGEN_SESAME" name="ALLERGENS_INPUT" value="Sesame">
                     <label for="ALLERGEN_SESAME">Sesame</label><br>
-                    <input type="checkbox" id="ALLERGEN_MUSTARD" name="ALLERGENS_INPUT" value="MUSTARD">
+                    <input type="checkbox" id="ALLERGEN_MUSTARD" name="ALLERGENS_INPUT" value="Mustard">
                     <label for="ALLERGEN_MUSTARD">Mustard</label><br>
 
                     <div class="spacer"></div>
@@ -174,7 +174,7 @@
                     window.location.href = "list.html";
                 }).catch(error => {
                     console.log(error);
-                    document.getElementById("RECIPE_LIST").innerHTML = "Error!";
+                    window.alert("Error encountered! Check the console for more details.");
                 });
                 
             }

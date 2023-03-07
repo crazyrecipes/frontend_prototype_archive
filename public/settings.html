@@ -4,84 +4,86 @@
         <title>Settings</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <div class="navbar">
-        <a href="index.html"><div class="navbar_item">Home</div></a>
-        <a href="list.html"><div class="navbar_item">My Recipes</div></a>
-        <a href="search.html"><div class="navbar_item">Search</div></a>
-        <a href="create.html"><div class="navbar_item">Create</div></a>
-        <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
-        <a href="settings.html"><div class="navbar_item">Settings</div></a>
-    </div>
+    <body>
+        <div class="navbar">
+            <a href="index.html"><div class="navbar_item">Home</div></a>
+            <a href="list.html"><div class="navbar_item">My Recipes</div></a>
+            <a href="search.html"><div class="navbar_item">Search</div></a>
+            <a href="create.html"><div class="navbar_item">Create</div></a>
+            <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
+            <a href="settings.html"><div class="navbar_item">Settings</div></a>
+        </div>
 
-    <div class="app_main">
-        <img class="logo" src="media/recipebuddy.png">
-        <div class="content_container">
-            <div class="content_inner">
-                <h1>Settings</h1>
+        <div class="app_main">
+            <img class="logo" src="media/recipebuddy.png">
+            <div class="content_container">
+                <div class="content_inner">
+                    <h1>Settings</h1>
 
-                <div class="spacer"></div>
+                    <div class="spacer"></div>
 
-                <h3>Name</h3>
-                <p>Your current name is "<span id="NAME_CURRENT"></span>".</p>
-                <div><input class="text_field" id="NAME_INPUT" placeholder="Enter new name here..."></div>
-                <button class="inline_button" onclick="handle_name_change()">Change Name</button>
-                
-                <div class="spacer"></div>
+                    <h3>Name</h3>
+                    <p>Your current name is "<span id="NAME_CURRENT"></span>".</p>
+                    <div><input class="text_field" id="NAME_INPUT" placeholder="Enter new name here..."></div>
+                    <button class="inline_button" onclick="handle_name_change()">Change Name</button>
+                    
+                    <div class="spacer"></div>
 
-                <h3>Allergens</h3>
+                    <h3>Allergens</h3>
 
-                <input type="checkbox" id="ALLERGEN_PEANUTS" name = "checkboxes">
-                <label for="ALLERGEN_PEANUTS">Peanuts</label><br>
+                    <input type="checkbox" id="ALLERGEN_PEANUTS" name = "checkboxes">
+                    <label for="ALLERGEN_PEANUTS">Peanuts</label><br>
 
-                <input type="checkbox" id="ALLERGEN_TREE_NUTS" name = "checkboxes">
-                <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label><br>
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name = "checkboxes">
+                    <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label><br>
 
-                <input type="checkbox" id="ALLERGEN_DAIRY" name = "checkboxes">
-                <label for="ALLERGEN_DAIRY">Dairy</label><br>
+                    <input type="checkbox" id="ALLERGEN_DAIRY" name = "checkboxes">
+                    <label for="ALLERGEN_DAIRY">Dairy</label><br>
 
-                <input type="checkbox" id="ALLERGEN_SOY" name = "checkboxes">
-                <label for="ALLERGEN_SOY">Soy</label><br>
+                    <input type="checkbox" id="ALLERGEN_SOY" name = "checkboxes">
+                    <label for="ALLERGEN_SOY">Soy</label><br>
 
-                <input type="checkbox" id="ALLERGEN_GLUTEN" name = "checkboxes">
-                <label for="ALLERGEN_GLUTEN">Gluten</label><br>
+                    <input type="checkbox" id="ALLERGEN_GLUTEN" name = "checkboxes">
+                    <label for="ALLERGEN_GLUTEN">Gluten</label><br>
 
-                <input type="checkbox" id="ALLERGEN_EGG" name = "checkboxes">
-                <label for="ALLERGEN_EGG">Egg</label><br>
+                    <input type="checkbox" id="ALLERGEN_EGG" name = "checkboxes">
+                    <label for="ALLERGEN_EGG">Egg</label><br>
 
-                <input type="checkbox" id="ALLERGEN_FISH" name = "checkboxes">
-                <label for="ALLERGEN_FISH">Fish</label><br>
+                    <input type="checkbox" id="ALLERGEN_FISH" name = "checkboxes">
+                    <label for="ALLERGEN_FISH">Fish</label><br>
 
-                <input type="checkbox" id="ALLERGEN_SHELLFISH" name = "checkboxes">
-                <label for="ALLERGEN_SHELLFISH">Shellfish</label><br>
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name = "checkboxes">
+                    <label for="ALLERGEN_SHELLFISH">Shellfish</label><br>
 
-                <input type="checkbox" id="ALLERGEN_CORN" name = "checkboxes">
-                <label for="ALLERGEN_CORN">Corn</label><br>
+                    <input type="checkbox" id="ALLERGEN_CORN" name = "checkboxes">
+                    <label for="ALLERGEN_CORN">Corn</label><br>
 
-                <input type="checkbox" id="ALLERGEN_SESAME" name = "checkboxes">
-                <label for="ALLERGEN_SESAME">Sesame</label><br>
+                    <input type="checkbox" id="ALLERGEN_SESAME" name = "checkboxes">
+                    <label for="ALLERGEN_SESAME">Sesame</label><br>
 
-                <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
-                <label for="ALLERGEN_MUSTARD">Mustard</label><br>
+                    <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
+                    <label for="ALLERGEN_MUSTARD">Mustard</label><br>
 
-                <div class="inline_button" onclick="handle_allergen_change()">Update Allergens</div>
-                <div class="spacer"></div>
-                <p>Need help? <a href="index.html">Contact Us!</a></p>
+                    <div class="inline_button" onclick="handle_allergen_change()">Update Allergens</div>
+                    <div class="spacer"></div>
+                    <p>Need help? <a href="index.html">Contact Us!</a></p>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        function handle_name_change()  {
-            var name = document.getElementById("NAME_INPUT").value 
-            document.getElementById("NAME_CURRENT").innerHTML = name
-        }
-        function handle_allergen_change() {
-            console.log("The following allergens are selected:");
-            var checkboxes = document.getElementsByName("checkboxes");
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                console.log(checkboxes[i].id);
+        <script>
+            function handle_name_change()  {
+                var name = document.getElementById("NAME_INPUT").value 
+                document.getElementById("NAME_CURRENT").innerHTML = name
+            }
+            function handle_allergen_change() {
+                console.log("The following allergens are selected:");
+                var checkboxes = document.getElementsByName("checkboxes");
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked) {
+                    console.log(checkboxes[i].id);
+                    }
                 }
             }
-}
         </script>
+    </body>
 </html>

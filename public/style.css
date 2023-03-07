@@ -20,7 +20,7 @@ body {
 
 h1, h2, h3 {
     font-family: "Open Sans Bold", Verdana, sans-serif;
-    margin: 4px 0px;
+    margin: 8px 0px 0px 0px;
 }
 
 p {
@@ -35,6 +35,7 @@ p {
     margin: 0;
     padding: 0;
     padding-top: 60px;
+    padding-bottom: 60px;
     min-width: 600px;
     overflow: visible;
 }
@@ -145,7 +146,7 @@ p {
 /* ===== Recipe Viewer ===== */
 .recipeviewer_photo {
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     border-radius: 5px;
 }
