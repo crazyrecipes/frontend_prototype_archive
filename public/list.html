@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Recipes</title>
+        <title>My Recipes - RecipeBuddy</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -33,7 +33,7 @@
             
             /* Get all recipes and display them */
             function display_recipe_list() {
-                console.log("Handling DISPLAY recipes...")
+                console.log("Handling DISPLAY recipes...");
                 fetch(RECIPELIST_URL, {
                     method: "GET",
                     headers: {
@@ -62,8 +62,8 @@
 
                     document.getElementById("RECIPE_LIST").innerHTML = formatted_result;
                 }).catch(error => {
-                console.log(error);
-                window.alert("Error encountered! Please check the console for more details.");
+                    console.log(error);
+                    window.alert("Error encountered! Please check the console for more details.");
                 });
             }
         

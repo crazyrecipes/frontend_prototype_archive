@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Edit Recipe</title>
+        <title>Edit Recipe - RecipeBuddy</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -20,12 +20,20 @@
 
             <div class="content_container">
                 <div class="content_inner">
-                    <h1>Create a Recipe</h1>
+                    <h1>Edit Recipe</h1>
 
                     <div class="spacer"></div>
 
                     <h3>Name</h3>
                     <input class="text_field" id="RECIPE_NAME" placeholder="Enter the recipe's name here..."></input>
+
+                    <h3>Photo</h3>
+                    <input class="text_field" id="RECIPE_PHOTO" placeholder="Path to photo of recipe..."></input>
+
+                    <div class="spacer"></div>
+
+                    <h3>Description</h3>
+                    <textarea class="text_field_big" id="RECIPE_DESC" rows="5" placeholder="Enter the recipe's description here..."></textarea>
 
                     <div class="spacer"></div>
                     
@@ -33,51 +41,45 @@
                     <textarea id="RECIPE_INGREDIENTS" class="text_field_big" rows="10" placeholder="Enter each ingredient on its own line..."></textarea>
                     
                     <div class="spacer"></div>
+                    
 
-                    <h3>Instructions</h3>
-                    <textarea id="RECIPE_INSTRUCTIONS" class="text_field_big" rows="10" placeholder="Enter each instruction on its own line..."></textarea>
+                    <h3>Implements</h3>
+                    <textarea id="RECIPE_IMPLEMENTS" class="text_field_big" rows="5" placeholder="Enter each implement on its own line..."></textarea>
+                    
+                    <div class="spacer"></div>
+
+                    <h3>Steps</h3>
+                    <textarea id="RECIPE_STEPS" class="text_field_big" rows="10" placeholder="Enter each step on its own line..."></textarea>
                     
                     <div class="spacer"></div>
 
                     <h3>Tags</h3>
-                    <textarea id="RECIPE_TAGS" class="text_field_big" rows="5" placeholder="Enter each tag on its own line..."></textarea>
+                    <input id="RECIPE_TAGS" class="text_field" rows="5" placeholder="Enter tags separated by commas..."></input>
                     
-                    <div class="spacer"></div>
-
-                    <h3>Time</h3>
-                    <input type="radio" name="TIME_INPUT" value="NOPREF" checked>
-                    <label>No Preference</label><br>
-                    <input type="radio" name="TIME_INPUT" value="BREAKFAST">
-                    <label>Breakfast</label><br>
-                    <input type="radio" name="TIME_INPUT" value="LUNCH">
-                    <label>Lunch</label><br>
-                    <input type="radio" name="TIME_INPUT" value="DINNER">
-                    <label>Dinner</label><br>
-
                     <div class="spacer"></div>
                     
                     <h3>Allergens</h3>
-                    <input type="checkbox" id="ALLERGEN_PEANUTS" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_PEANUTS" name="ALLERGENS_INPUT" value="Peanuts">
                     <label for="ALLERGEN_PEANUTS">Peanuts</label><br>
-                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_TREE_NUTS" name="ALLERGENS_INPUT" value="Tree Nuts">
                     <label for="ALLERGEN_TREE_NUTS">Tree Nuts</label><br>
-                    <input type="checkbox" id="ALLERGEN_DAIRY" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_DAIRY" name="ALLERGENS_INPUT" value="Dairy">
                     <label for="ALLERGEN_DAIRY">Dairy</label><br>
-                    <input type="checkbox" id="ALLERGEN_SOY" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_SOY" name="ALLERGENS_INPUT" value="Soy">
                     <label for="ALLERGEN_SOY">Soy</label><br>
-                    <input type="checkbox" id="ALLERGEN_GLUTEN" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_GLUTEN" name="ALLERGENS_INPUT" value="Gluten">
                     <label for="ALLERGEN_GLUTEN">Gluten</label><br>
-                    <input type="checkbox" id="ALLERGEN_EGG" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_EGG" name="ALLERGENS_INPUT" value="Egg">
                     <label for="ALLERGEN_EGG">Egg</label><br>
-                    <input type="checkbox" id="ALLERGEN_FISH" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_FISH" name="ALLERGENS_INPUT" value="Fish">
                     <label for="ALLERGEN_FISH">Fish</label><br>
-                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_SHELLFISH" name="ALLERGENS_INPUT" value="Shellfish">
                     <label for="ALLERGEN_SHELLFISH">Shellfish</label><br>
-                    <input type="checkbox" id="ALLERGEN_CORN" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_CORN" name="ALLERGENS_INPUT" value="Corn">
                     <label for="ALLERGEN_CORN">Corn</label><br>
-                    <input type="checkbox" id="ALLERGEN_SESAME" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_SESAME" name="ALLERGENS_INPUT" value="Sesame">
                     <label for="ALLERGEN_SESAME">Sesame</label><br>
-                    <input type="checkbox" id="ALLERGEN_MUSTARD" name = "checkboxes">
+                    <input type="checkbox" id="ALLERGEN_MUSTARD" name="ALLERGENS_INPUT" value="Mustard">
                     <label for="ALLERGEN_MUSTARD">Mustard</label><br>
 
                     <div class="spacer"></div>
@@ -92,104 +94,136 @@
         </div>
 
         <script>
-            const RECIPELIST_URL = "api/search"
-            
+            const RECIPES_URL = "api/recipes"
+
+            const params = new URLSearchParams(decodeURI(window.location.search));
+            const RECIPE_URL = "api/recipe/" + params.get("id");
+
+            function display_recipe() {
+                console.log(`Handle DISPLAY recipe ${RECIPE_URL}...`);
+                fetch(RECIPE_URL, {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json",
+                    },
+                }).then(async response => {
+                    const data = await response.json();
+                    console.log(data);
+
+                    recipe_ingredients = data.ingredients.join("\n");
+                    recipe_implements = data.implements.join("\n");
+                    recipe_steps = data.steps.join("\n");
+                    recipe_allergens = data.allergens.join("\n");
+                    recipe_tags = data.tags.join(",");
+
+                    document.getElementById("RECIPE_NAME").value = data.name;
+                    document.getElementById("RECIPE_DESC").value = data.desc;
+                    document.getElementById("RECIPE_PHOTO").value = data.photo;
+                    document.getElementById("RECIPE_INGREDIENTS").value = recipe_ingredients;
+                    document.getElementById("RECIPE_IMPLEMENTS").value = recipe_implements;
+                    document.getElementById("RECIPE_STEPS").value = recipe_steps;
+                    document.getElementById("RECIPE_TAGS").value = recipe_tags;
+
+                    var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
+                    for(let i in data.allergens) {
+                        for(j = 0; j < allergens_inputs.length; j++) {
+                            if(allergens_inputs[j].value === data.allergens[i]) {
+                                allergens_inputs[j].checked = true;
+                            }
+                        }
+                    }
+                }).catch(error => {
+                    console.log(error);
+                    window.alert("Error encountered! Please check the console for more details.");
+                });
+            }
+
             /* Execute a search and display results */
-            function do_search() {
-                console.log("Handling SEARCH...");
-                /* Get title */
-                var search_text = document.getElementById("SEARCH_TEXT").value;
-                console.log(`..for text "${search_text}"`)
+            function do_create() {
+                console.log("Handling CREATE recipe...");
 
-                /* Get time choice */
-                var time_inputs = document.getElementsByName("TIME_INPUT");
-                var search_time = "NOPREF";
-                for(i = 0; i < time_inputs.length; i++) {
-                    if(time_inputs[i].checked) {
-                        search_time = time_inputs[i].value;
-                        break;
-                    }
-                }
-                console.log(`..for time "${search_time}"`)
+                /* Get name */
+                var recipe_name = document.getElementById("RECIPE_NAME").value;
+                console.log(`..with name "${recipe_name}"`);
 
-                /* Get ingredients choice */
-                var ingredients_inputs = document.getElementsByName("INGREDIENTS_INPUT");
-                var search_ingredients = "SOME";
-                for(i = 0; i < ingredients_inputs.length; i++) {
-                    if(ingredients_inputs[i].checked) {
-                        search_ingredients = ingredients_inputs[i].value;
-                        break;
-                    }
-                }
-                console.log(`..for ingredients "${search_ingredients}"`)
+                /* Get photo */
+                var recipe_photo = document.getElementById("RECIPE_PHOTO").value;
+                console.log(`..with photo "${recipe_photo}"`);
+
+                /* Get desc */
+                var recipe_desc = document.getElementById("RECIPE_DESC").value;
+                console.log(`..with desc "${recipe_desc}"`);
+
+                /* Get ingredients */
+                var recipe_ingredients = document.getElementById("RECIPE_INGREDIENTS").value;
+                console.log(`..with ingredients "${recipe_ingredients}"`);
+
+                /* Get implements */
+                var recipe_implements = document.getElementById("RECIPE_IMPLEMENTS").value;
+                console.log(`..with implements "${recipe_implements}"`);
+
+                /* Get steps */
+                var recipe_steps = document.getElementById("RECIPE_STEPS").value;
+                console.log(`..with steps "${recipe_steps}"`);
 
                 /* Get allergens choice */
                 var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
-                var search_allergens = "BLOCK";
+                var recipe_allergens = "";
                 for(i = 0; i < allergens_inputs.length; i++) {
                     if(allergens_inputs[i].checked) {
-                        search_allergens = allergens_inputs[i].value;
-                        break;
+                        recipe_allergens = recipe_allergens.concat(allergens_inputs[i].value, "\n");
                     }
                 }
-                console.log(`..for allergens "${search_allergens}"`)
+                console.log(`..for allergens "${recipe_allergens}"`);
 
-                /* Assemble query JSON */
-                const SEARCH_JSON = `
-                {
-                    "query": {
-                        "title": "${search_text}",
-                        "time": "${search_time}",
-                        "ingredients": "${search_ingredients}",
-                        "allergens": "${search_allergens}",
-                    }
+                /* Get tags */
+                var recipe_tags = document.getElementById("RECIPE_TAGS").value;
+                console.log(`..with tags "${recipe_tags}"`);
+
+                /* Assemble recipe JSON */
+                const RECIPE_JSON = {
+                        "id": "0",
+                        "name": recipe_name,
+                        "desc": recipe_desc,
+                        "photo": recipe_photo,
+                        "rating": "0.0",
+                        "cooked": "0",
+                        "ingredients": recipe_ingredients.split('\n'),
+                        "implements": recipe_implements.split('\n'),
+                        "steps": recipe_steps.split('\n'),
+                        "allergens": recipe_allergens.split('\n'),
+                        "tags": recipe_tags.split(','),
                 }
-                `
+                
+                console.log(JSON.stringify(RECIPE_JSON));
+                console.log("Sending request...");
 
-                console.log("Getting results...");
-
-                /* Send request and display results */
-                document.getElementById("SEARCH_RESULTS").innerHTML = "Loading results...";
-                fetch(RECIPELIST_URL, {
+                /* Send request */
+                fetch(RECIPES_URL, {
                     method: "POST",
                     headers: {
                         "Accept": "application/json",
                         "Content-Type": "application/json",
                     },
-                    body: SEARCH_JSON,
+                    body: JSON.stringify(RECIPE_JSON),
                 }).then(async response => {
+                    if(!response.ok) {
+                        throw new Error("POST request failed!")
+                    }
                     const data = await response.json();
                     console.log("[DEBUG] Got data:");
                     console.log(data);
-                    formatted_result = "";
-                    for(let i in data.results) {
-                        let recipe = data.results[i];
-                        console.log("[DEBUG] Processing recipe:");
-                        console.log(recipe);
-                        var recipeHTML = `
-                        <div class="recipepreview_container">
-                            <img class="recipepreview_photo" src="${recipe.photo}">
-                            <div class="recipepreview_content">
-                                <h2>${recipe.name}</h2>
-                                <p>${recipe.rating}&#9733; - Cooked ${recipe.cooked} times.</p>
-                                <a href="viewer?id=${recipe.id}"><div class="inline_button">Make It</div></a>
-                                <a href="editor?id=${recipe.id}"><div class="inline_button">Edit</div></a>
-                            </div>
-                        </div>
-                        `
-                        formatted_result += recipeHTML;
-                    }
-                    if(data.results.length > 0) {
-                        console.log("Displaying results...");
-                        document.getElementById("SEARCH_RESULTS").innerHTML = formatted_result;
-                    } else {
-                        document.getElementById("SEARCH_RESULTS").innerHTML = "No Results!";
-                    }
+                    window.alert("Recipe edited successfully.");
+                    window.location.href = "list.html";
+                }).catch(error => {
+                    console.log(error);
+                    window.alert("Error encountered! Check the console for more details.");
                 });
-                /*.catch(error => {
-                    document.getElementById("RECIPE_LIST").innerHTML = "Error!";
-                });*/
+                
             }
+
+            /* ===== On page load ===== */
+            display_recipe();
         </script>
     </body>
 </html>

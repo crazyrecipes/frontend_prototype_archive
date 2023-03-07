@@ -1,142 +1,144 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pantry</title>
+        <title>My Pantry - RecipeBuddy</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <div class="navbar">
-        <a href="index.html"><div class="navbar_item">Home</div></a>
-        <a href="list.html"><div class="navbar_item">My Recipes</div></a>
-        <a href="search.html"><div class="navbar_item">Search</div></a>
-        <a href="create.html"><div class="navbar_item">Create</div></a>
-        <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
-        <a href="settings.html"><div class="navbar_item">Settings</div></a>
-    </div>
+    <body>
+        <div class="navbar">
+            <a href="index.html"><div class="navbar_item">Home</div></a>
+            <a href="list.html"><div class="navbar_item">My Recipes</div></a>
+            <a href="search.html"><div class="navbar_item">Search</div></a>
+            <a href="create.html"><div class="navbar_item">Create</div></a>
+            <a href="pantry.html"><div class="navbar_item">Pantry</div></a>
+            <a href="settings.html"><div class="navbar_item">Settings</div></a>
+        </div>
 
 
-    <div class="app_main">
-        <img class="logo" src="media/recipebuddy.png">
+        <div class="app_main">
+            <img class="logo" src="media/recipebuddy.png">
 
-        <div class="content_container">
-            <div class="content_inner">
-                <h1>My Pantry</h1>
+            <div class="content_container">
+                <div class="content_inner">
+                    <h1>My Pantry</h1>
 
-                <div class="spacer"></div>
+                    <div class="spacer"></div>
 
-                <h3>Ingredients</h3>
-                <div id="INGREDIENT_LIST"></div>
-                <div class="spacer"></div>
-                <p>Add an ingredient</p>
-                <div><input class="text_field" id="INGREDIENT_ADD_INPUT" placeholder="Enter ingredient name here..."></div>
-                <button class="inline_button" onclick="handle_add_ingredient()">Add</button>
+                    <h3>Ingredients</h3>
+                    <div id="INGREDIENT_LIST"></div>
+                    <div class="spacer"></div>
+                    <p>Add an ingredient</p>
+                    <input class="text_field" id="INGREDIENT_ADD_INPUT" placeholder="Enter ingredient name here...">
+                    <button class="inline_button" onclick="handle_add_ingredient()">Add</button>
 
-                <div class="spacer"></div>
+                    <div class="spacer"></div>
 
-                <h3>Implements</h3>
-                <div id="IMPLEMENT_LIST"></div>
-                <div class="spacer"></div>
-                <p>Add an implement</p>
-                <div><input class="text_field" id="IMPLEMENT_ADD_INPUT" placeholder="Enter implement name here..."></div>
-                <button class="inline_button" onclick="handle_add_implement()">Add</button>
+                    <h3>Implements</h3>
+                    <div id="IMPLEMENT_LIST"></div>
+                    <div class="spacer"></div>
+                    <p>Add an implement</p>
+                    <input class="text_field" id="IMPLEMENT_ADD_INPUT" placeholder="Enter implement name here...">
+                    <button class="inline_button" onclick="handle_add_implement()">Add</button>
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        const INGREDIENTS_URL = "api/ingredients"
-        const IMPLEMENTS_URL = "api/implements"
+        <script>
+            const INGREDIENTS_URL = "api/ingredients"
+            const IMPLEMENTS_URL = "api/implements"
 
-        /* Remove an ingredient from the pantry */
-        function handle_remove_ingredient(name) {
-            console.log(`Handling REMOVE ingredient "${name}"`);
-        }
+            /* Remove an ingredient from the pantry */
+            function handle_remove_ingredient(name) {
+                console.log(`Handling REMOVE ingredient "${name}"`);
+            }
 
-        /* Remove an implement from the pantry */
-        function handle_remove_implement(name) {
-            console.log(`Handling REMOVE implement "${name}"`);
-        }
+            /* Remove an implement from the pantry */
+            function handle_remove_implement(name) {
+                console.log(`Handling REMOVE implement "${name}"`);
+            }
 
-        /* Add an ingredient to the pantry */
-        function handle_add_ingredient() {
-            let ingredient_name = document.getElementById("INGREDIENT_ADD_INPUT").value;
-            console.log(`Handling ADD ingredient "${ingredient_name}"`);
-        }
+            /* Add an ingredient to the pantry */
+            function handle_add_ingredient() {
+                let ingredient_name = document.getElementById("INGREDIENT_ADD_INPUT").value;
+                console.log(`Handling ADD ingredient "${ingredient_name}"`);
+            }
 
-        /* Add an implement to the pantry */
-        function handle_add_implement() {
-            let implement_name = document.getElementById("IMPLEMENT_ADD_INPUT").value;
-            console.log(`Handling ADD implement "${implement_name}"`);
-        }
-        
-        /* Get and display all ingredients */
-        function display_ingredients() {
-            console.log("Handling DISPLAY ingredients...");
-            fetch(INGREDIENTS_URL, {
-                method: "GET",
-                headers: {
-                    "Accept": "application/json",
-                },
-            }).then(async response => {
-                const data = await response.json();
-                console.log("[DEBUG] Got data:");
-                console.log(data);
-                formatted_result = "";
-                for(let i in data) {
-                    let ingredient = data[i];
-                    console.log("[DEBUG] Processing ingredient:");
-                    console.log(ingredient);
-                    var ingredientHTML = `
-                    <div class="pantry_entry">
-                        ${ingredient.name}
-                        <button class="pantry_button" onClick="handle_remove_ingredient('${ingredient.name}')">X</button>
-                    </div>
-                    `
-                    formatted_result += ingredientHTML;
-                }
+            /* Add an implement to the pantry */
+            function handle_add_implement() {
+                let implement_name = document.getElementById("IMPLEMENT_ADD_INPUT").value;
+                console.log(`Handling ADD implement "${implement_name}"`);
+            }
+            
+            /* Get and display all ingredients */
+            function display_ingredients() {
+                console.log("Handling DISPLAY ingredients...");
+                fetch(INGREDIENTS_URL, {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json",
+                    },
+                }).then(async response => {
+                    const data = await response.json();
+                    console.log("[DEBUG] Got data:");
+                    console.log(data);
+                    formatted_result = "";
+                    for(let i in data) {
+                        let ingredient = data[i];
+                        console.log("[DEBUG] Processing ingredient:");
+                        console.log(ingredient);
+                        var ingredientHTML = `
+                        <div class="pantry_entry">
+                            ${ingredient.name}
+                            <button class="pantry_button" onClick="handle_remove_ingredient('${ingredient.name}')">X</button>
+                        </div>
+                        `
+                        formatted_result += ingredientHTML;
+                    }
 
-                document.getElementById("INGREDIENT_LIST").innerHTML = formatted_result;
-            }).catch(error => {
-                console.log(error);
-                window.alert("Error encountered! Please check the console for more details.");
-            })
-        }
+                    document.getElementById("INGREDIENT_LIST").innerHTML = formatted_result;
+                }).catch(error => {
+                    console.log(error);
+                    window.alert("Error encountered! Please check the console for more details.");
+                })
+            }
 
-        /* Get and display all implements */
-        function display_implements() {
-            console.log("Handling DISPLAY implements...");
-            fetch(IMPLEMENTS_URL, {
-                method: "GET",
-                headers: {
-                    "Accept": "application/json",
-                },
-            }).then(async response => {
-                const data = await response.json();
-                console.log("[DEBUG] Got data:");
-                console.log(data);
-                formatted_result = "";
-                for(let i in data) {
-                    let implement = data[i];
-                    console.log("[DEBUG] Processing implement:");
-                    console.log(implement);
-                    var implementHTML = `
-                    <div class="pantry_entry">
-                        ${implement.name}
-                        <button class="pantry_button" onClick="handle_remove_implement('${implement.name}')">X</button>
-                    </div>
-                    `
-                    formatted_result += implementHTML;
-                }
+            /* Get and display all implements */
+            function display_implements() {
+                console.log("Handling DISPLAY implements...");
+                fetch(IMPLEMENTS_URL, {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json",
+                    },
+                }).then(async response => {
+                    const data = await response.json();
+                    console.log("[DEBUG] Got data:");
+                    console.log(data);
+                    formatted_result = "";
+                    for(let i in data) {
+                        let implement = data[i];
+                        console.log("[DEBUG] Processing implement:");
+                        console.log(implement);
+                        var implementHTML = `
+                        <div class="pantry_entry">
+                            ${implement.name}
+                            <button class="pantry_button" onClick="handle_remove_implement('${implement.name}')">X</button>
+                        </div>
+                        `
+                        formatted_result += implementHTML;
+                    }
 
-                document.getElementById("IMPLEMENT_LIST").innerHTML = formatted_result;
-            }).catch(error => {
-                console.log(error);
-                window.alert("Error encountered! Please check the console for more details.");
-            })
-        }
+                    document.getElementById("IMPLEMENT_LIST").innerHTML = formatted_result;
+                }).catch(error => {
+                    console.log(error);
+                    window.alert("Error encountered! Please check the console for more details.");
+                })
+            }
 
-        /* ===== On page load: ===== */
-        display_ingredients();
-        display_implements();
-    </script>
+            /* ===== On page load: ===== */
+            display_ingredients();
+            display_implements();
+        </script>
+    </body>
 </html>
