@@ -95,11 +95,14 @@
         </div>
 
         <script>
+            /* API url to post recipe to */
             const RECIPES_URL = "api/recipes"
 
+            /* API url to get single recipe from */
             const params = new URLSearchParams(decodeURI(window.location.search));
             const RECIPE_URL = "api/recipe/" + params.get("id");
 
+            /* Fetch single recipe and display data in editor */
             function display_recipe() {
                 console.log(`Handle DISPLAY recipe ${RECIPE_URL}...`);
                 fetch(RECIPE_URL, {
@@ -142,7 +145,7 @@
                 });
             }
 
-            /* Edit the recipe */
+            /* Save user edits to the recipe */
             function do_edit() {
                 console.log("Handling CREATE recipe...");
                 /* Get parameters */
