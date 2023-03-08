@@ -1,31 +1,39 @@
 {
     "id": "2",
-    "name": "Tomato Sandwich",
-    "desc": "An ...interesting meal.",
-    "photo": "media/test.jpg",
-    "rating": "2.9",
-    "cooked": "1",
+    "name": "Ham Sandwich",
+    "desc": "For when you need more data for the mock API.",
+    "photo": "media/sandwich.jpg",
+    "rating": "3.9",
+    "cooked": "4",
     "ingredients": [
-        "Tomato",
-        "Beef",
-        "Ranch"
+        "Bread",
+        "Ham",
+        "Swiss Cheese",
+        "Mustard",
+        "Tomato"
     ],
     "implements": [
         "Frying pan",
         "Spatula"
     ],
     "steps": [
-        "Cook beef for 30 minutes.",
-        "Cook tomato for 5 minutes.",
-        "Apply ranch.",
-        "Construct."
+        "Toast 2 pieces of bread.",
+        "Stack the following in order:",
+        "Bread",
+        "Ham",
+        "Mustard",
+        "Tomato",
+        "Cheese",
+        "Bread",
+        "Your frontend team will thank you."
     ],
     "allergens": [
         "Gluten",
         "Dairy"
     ],
     "tags": [
-        "quick",
-        "family"
+        "sandwich",
+        "simple",
+        "cold"
     ]
 }

@@ -2,23 +2,29 @@
     {
         "id": "0",
         "name": "The Collins Burger",
-        "desc": "A good meal!",
-        "photo": "media/test.jpg",
-        "rating": "4.1",
+        "desc": "A delicious burger made to honor the man himself.",
+        "photo": "media/burger.jpg",
+        "rating": "4.3",
         "cooked": "6",
         "ingredients": [
-            "Bread",
+            "Bun",
+            "Ground Beef",
             "Onion",
-            "Ranch"
+            "Garlic",
+            "Tomato",
+            "Lettuce",
+            "Butter",
+            "Swiss Cheese"
         ],
         "implements": [
             "Frying pan",
             "Spatula"
         ],
         "steps": [
-            "Cook bread for 30 minutes.",
-            "Cook onion for 5 minutes.",
-            "Apply ranch."
+            "Make patty with ground beef, diced onion, and diced garlic.",
+            "Cook patty medium with butter to taste.",
+            "Crisp bun in pan with remaining butter and juice.",
+            "Put patty, lettuce, cheese, and tomato on bun. Serve."
         ],
         "allergens": [
             "Gluten",
@@ -26,29 +32,41 @@
         ],
         "tags": [
             "quick",
-            "family"
+            "burger",
+            "simple"
         ]
     },
     {
         "id": "1",
-        "name": "The Collins Burrito",
-        "desc": "A great meal!",
-        "photo": "media/test.jpg",
+        "name": "Beef Burrito",
+        "desc": "A simple but delicious recipe for a delicious, hearty burrito.",
+        "photo": "media/burrito.jpg",
         "rating": "4.7",
-        "cooked": "7",
+        "cooked": "19",
         "ingredients": [
             "Tortilla",
+            "Ground Beef",
+            "Shredded Cheese",
+            "Tomato",
             "Onion",
-            "Ranch"
+            "Mexican Seasoning",
+            "Cilantro",
+            "Butter"
         ],
         "implements": [
             "Frying pan",
+            "Cutting board",
+            "Chef's knife",
             "Spatula"
         ],
         "steps": [
-            "Cook tortilla for 30 minutes.",
-            "Cook onion for 5 minutes.",
-            "Apply ranch."
+            "Warm 1 tortilla in oven.",
+            "Add 1/2 cup ground beef and 1 tablespoon butter to pan on high heat.",
+            "Sear ground beef until browned.",
+            "Add 1/4 cup tomato, 1/8 cup onion to pan. Set to low heat.",
+            "Add cilantro and Mexican seasoning to taste.",
+            "Add shredded cheese and stir until partially melted.",
+            "Add pan contents to tortilla. Fold and serve."
         ],
         "allergens": [
             "Gluten",
@@ -61,33 +79,41 @@
     },
     {
         "id": "2",
-        "name": "Tomato Sandwich",
-        "desc": "An ...interesting meal.",
-        "photo": "media/test.jpg",
-        "rating": "2.9",
-        "cooked": "1",
+        "name": "Ham Sandwich",
+        "desc": "For when you need more data for the mock API.",
+        "photo": "media/sandwich.jpg",
+        "rating": "3.9",
+        "cooked": "4",
         "ingredients": [
-            "Tomato",
-            "Beef",
-            "Ranch"
+            "Bread",
+            "Ham",
+            "Swiss Cheese",
+            "Mustard",
+            "Tomato"
         ],
         "implements": [
             "Frying pan",
             "Spatula"
         ],
         "steps": [
-            "Cook beef for 30 minutes.",
-            "Cook tomato for 5 minutes.",
-            "Apply ranch.",
-            "Construct."
+            "Toast 2 pieces of bread.",
+            "Stack the following in order:",
+            "Bread",
+            "Ham",
+            "Mustard",
+            "Tomato",
+            "Cheese",
+            "Bread",
+            "Your frontend team will thank you."
         ],
         "allergens": [
             "Gluten",
             "Dairy"
         ],
         "tags": [
-            "quick",
-            "family"
+            "sandwich",
+            "simple",
+            "cold"
         ]
     }
 ]

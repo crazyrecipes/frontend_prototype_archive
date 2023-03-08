@@ -1,23 +1,29 @@
 {
     "id": "0",
     "name": "The Collins Burger",
-    "desc": "A good meal!",
-    "photo": "media/test.jpg",
-    "rating": "4.1",
+    "desc": "A delicious burger made to honor the man himself.",
+    "photo": "media/burger.jpg",
+    "rating": "4.3",
     "cooked": "6",
     "ingredients": [
-        "Bread",
+        "Bun",
+        "Ground Beef",
         "Onion",
-        "Ranch"
+        "Garlic",
+        "Tomato",
+        "Lettuce",
+        "Butter",
+        "Swiss Cheese"
     ],
     "implements": [
         "Frying pan",
         "Spatula"
     ],
     "steps": [
-        "Cook bread for 30 minutes.",
-        "Cook onion for 5 minutes.",
-        "Apply ranch."
+        "Make patty with ground beef, diced onion, and diced garlic.",
+        "Cook patty medium with butter to taste.",
+        "Crisp bun in pan with remaining butter and juice.",
+        "Put patty, lettuce, cheese, and tomato on bun. Serve."
     ],
     "allergens": [
         "Gluten",
@@ -25,6 +31,7 @@
     ],
     "tags": [
         "quick",
-        "family"
+        "burger",
+        "simple"
     ]
 }
