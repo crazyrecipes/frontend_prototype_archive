@@ -1,10 +1,4 @@
 [
-    {
-        "id": "0",
-        "name": "Gluten"
-    },
-    {
-        "id": "1",
-        "name": "Soy"
-    }
+    "Gluten",
+    "Soy"
 ]

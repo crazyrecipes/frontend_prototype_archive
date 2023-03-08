@@ -1,18 +1,6 @@
 [
-    {
-        "id": "0",
-        "name": "Frying Pan"
-    },
-    {
-        "id": "1",
-        "name": "Spatula"
-    },
-    {
-        "id": "2",
-        "name": "Sauce pan"
-    },
-    {
-        "id": "3",
-        "name": "Pot"
-    }
+    "Frying Pan",
+    "Spatula",
+    "Sauce pan",
+    "Pot"
 ]

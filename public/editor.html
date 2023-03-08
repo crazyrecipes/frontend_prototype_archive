@@ -84,7 +84,8 @@
 
                     <div class="spacer"></div>
                     
-                    <button class="inline_button" onclick="do_edit()">Edit Recipe</button>
+                    <button class="inline_button" onclick="do_edit()">Save Changes</button>
+                    <button class="inline_button" onclick="do_delete()">Delete Recipe</button>
                 </div>
             </div>
 
@@ -107,6 +108,9 @@
                         "Accept": "application/json",
                     },
                 }).then(async response => {
+                    if(!response.ok) {
+                        throw new Error("GET request failed!");
+                    }
                     const data = await response.json();
                     console.log(data);
 
@@ -141,32 +145,26 @@
             /* Edit the recipe */
             function do_edit() {
                 console.log("Handling CREATE recipe...");
-
-                /* Get name */
+                /* Get parameters */
                 var recipe_name = document.getElementById("RECIPE_NAME").value;
                 console.log(`..with name "${recipe_name}"`);
-
-                /* Get photo */
+                
                 var recipe_photo = document.getElementById("RECIPE_PHOTO").value;
                 console.log(`..with photo "${recipe_photo}"`);
-
-                /* Get desc */
+               
                 var recipe_desc = document.getElementById("RECIPE_DESC").value;
                 console.log(`..with desc "${recipe_desc}"`);
-
-                /* Get ingredients */
+                
                 var recipe_ingredients = document.getElementById("RECIPE_INGREDIENTS").value;
                 console.log(`..with ingredients "${recipe_ingredients}"`);
-
-                /* Get implements */
+                
                 var recipe_implements = document.getElementById("RECIPE_IMPLEMENTS").value;
                 console.log(`..with implements "${recipe_implements}"`);
 
-                /* Get steps */
                 var recipe_steps = document.getElementById("RECIPE_STEPS").value;
                 console.log(`..with steps "${recipe_steps}"`);
 
-                /* Get allergens choice */
+                /* Get allergens */
                 var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
                 var recipe_allergens = "";
                 for(i = 0; i < allergens_inputs.length; i++) {
@@ -176,11 +174,9 @@
                 }
                 console.log(`..with allergens "${recipe_allergens}"`);
 
-                /* Get tags */
                 var recipe_tags = document.getElementById("RECIPE_TAGS").value;
                 console.log(`..with tags "${recipe_tags}"`);
 
-                /* Assemble recipe JSON */
                 const RECIPE_JSON = {
                         "id": "0",
                         "name": recipe_name,
@@ -195,10 +191,9 @@
                         "tags": recipe_tags.split(','),
                 }
                 
+                console.log("[DEBUG] New recipe:");
                 console.log(JSON.stringify(RECIPE_JSON));
-                console.log("Sending request...");
-
-                /* Send request */
+                
                 fetch(RECIPE_URL, {
                     method: "PUT",
                     headers: {
@@ -208,7 +203,7 @@
                     body: JSON.stringify(RECIPE_JSON),
                 }).then(async response => {
                     if(!response.ok) {
-                        throw new Error("PUT request failed!")
+                        throw new Error("PUT request failed!");
                     }
                     const data = await response.json();
                     console.log("[DEBUG] Got data:");
@@ -219,7 +214,29 @@
                     console.log(error);
                     window.alert("Error encountered! Check the console for more details.");
                 });
-                
+            }
+
+            /* Delete this recipe */
+            function do_delete() {
+                console.log("Handling DELETE recipe...");
+                fetch(RECIPE_URL, {
+                    method: "DELETE",
+                    headers: {
+                        "Accept": "application/json"
+                    },
+                }).then(async response => {
+                    if(!response.ok) {
+                        throw new Error("DELETE request failed!");
+                    }
+                    const data = await response.json();
+                    console.log("[DEBUG] Got data:");
+                    console.log(data);
+                    window.alert("Recipe deleted successfully.");
+                    window.location.href = "list.html";
+                }).catch(error => {
+                    console.log(error);
+                    window.alert("Error encountered! Check the console for more details.");
+                })
             }
 
             /* ===== On page load ===== */
