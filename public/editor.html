@@ -218,6 +218,9 @@
 
             /* Delete this recipe */
             function do_delete() {
+                if(!confirm("Are you sure you want to delete this recipe?")) {
+                    return;
+                }
                 console.log("Handling DELETE recipe...");
                 fetch(RECIPE_URL, {
                     method: "DELETE",
