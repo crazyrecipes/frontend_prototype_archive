@@ -53,16 +53,17 @@
         </div>
 
         <script>
+            /* API url to get search results from */
             const RECIPELIST_URL = "api/search"
             
             /* Execute a search and display results */
             function do_search() {
                 console.log("Handling SEARCH...");
-                /* Get title */
+
+                /* Get search parameters */
                 var search_text = document.getElementById("SEARCH_TEXT").value;
                 console.log(`..for text "${search_text}"`)
 
-                /* Get tags */
                 var search_tags = document.getElementById("SEARCH_TAGS").value;
                 console.log(`..for tags "${search_tags}"`)
 
@@ -88,7 +89,6 @@
                 }
                 console.log(`..for allergens "${search_allergens}"`)
 
-                /* Assemble query JSON */
                 const SEARCH_JSON = `
                 {
                     "query": {
@@ -100,10 +100,8 @@
                 }
                 `
 
-                console.log("Getting results...");
-
                 /* Send request and display results */
-                document.getElementById("SEARCH_RESULTS").innerHTML = "Loading results...";
+                console.log("Getting results...");
                 fetch(RECIPELIST_URL, {
                     method: "POST",
                     headers: {
@@ -144,6 +142,8 @@
                     window.alert("Error encountered! Please check the console for more details.");
                 });
             }
+
+            /* ===== On page load: ===== */
         </script>
     </body>
 </html>

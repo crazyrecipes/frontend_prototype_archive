@@ -26,9 +26,11 @@
         </div>
 
         <script>
+            /* API url to get single recipe from */
             const params = new URLSearchParams(decodeURI(window.location.search));
             const RECIPE_URL = "api/recipe/" + params.get("id");
 
+            /* Grab a single recipe and display it */
             function display_recipe() {
                 console.log(`Handle DISPLAY recipe ${RECIPE_URL}...`);
                 fetch(RECIPE_URL, {
@@ -37,6 +39,9 @@
                         "Accept": "application/json",
                     },
                 }).then(async response => {
+                    if(!response.ok) {
+                        throw new Error("GET request failed!");
+                    }
                     const data = await response.json();
                     console.log(data);
 

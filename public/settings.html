@@ -61,12 +61,14 @@
         <script>
             const ALLERGENS_URL = "api/allergens";
 
+            /* Handle name change (just a demo handler) */
             function handle_name_change()  {
                 console.log("Handle CHANGE name...");
                 var name = document.getElementById("NAME_INPUT").value;
                 document.getElementById("NAME_CURRENT").innerHTML = name;
             }
 
+            /* Grab and display current user allergens */
             function display_allergens() {
                 console.log("Handle DISPLAY allergens...");
                 /* Send request */
@@ -96,6 +98,7 @@
                 });
             }
 
+            /* Push user allergen changes */
             function handle_allergen_change() {
                 console.log("Handle UPDATE allergens...");
                 var allergens_inputs = document.getElementsByName("ALLERGENS_INPUT");
