@@ -56,7 +56,7 @@ a {
 .content_outer {
     margin: 0 auto;
     padding: 4px;
-    max-width: 800px;
+    width: 900px;
 }
 
 .content_inner {
@@ -67,7 +67,7 @@ a {
 /* Inline side-by-side content */
 .sbs {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 40% 60%;
     gap: 4px;
     width: 100%;
     margin: 0;
